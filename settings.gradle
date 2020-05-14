@@ -1,0 +1,2 @@
+rootProject.name='AppDoggo'
+include ':app'
