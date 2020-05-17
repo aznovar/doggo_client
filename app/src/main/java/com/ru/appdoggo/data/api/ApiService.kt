@@ -16,7 +16,6 @@ interface ApiService {
 
         const val USERNAME_PARAM = "username"
         const val PASSWORD_PARAM = "password"
-
     }
 
     @FormUrlEncoded
