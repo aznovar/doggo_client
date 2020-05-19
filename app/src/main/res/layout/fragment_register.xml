@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/Background"
+    android:textAlignment="textEnd"
+    style="df">
+
+
+    <EditText
+        android:id="@+id/enterEmail"
+        android:layout_width="326dp"
+        android:layout_height="58dp"
+        android:cursorVisible="true"
+        android:ems="10"
+        android:hint="@string/enter_login"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:backgroundTint="@color/whiteAccent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="222dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="332dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/whiteAccent"
+        android:ems="10"
+        android:hint="@string/enter_password"
+        android:inputType="textPersonName"
+        android:textColorHint="#FFFFFF"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="352dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_reg"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteY="120dp"
+        tools:ignore="MissingConstraints"
+        />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="false"
+        android:text="@string/text_on_button"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="498dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
