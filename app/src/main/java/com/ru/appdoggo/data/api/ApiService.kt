@@ -20,5 +20,5 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST(REGISTRATION_ENDPOINT)
-    fun register(@FieldMap params: Map<String, String>): Call<String>
+    fun register(@FieldMap params: Map<String, String>): Call<BaseResponse>
 }
