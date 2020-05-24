@@ -3,6 +3,7 @@ package com.ru.appdoggo.data.api.account
 import com.ru.appdoggo.data.api.ApiService
 import com.ru.appdoggo.data.api.BaseRequest
 import com.ru.appdoggo.data.api.NetworkResult
+import com.ru.appdoggo.data.api.RegisterDataPost
 import com.ru.appdoggo.domain.type.Either
 import com.ru.appdoggo.domain.type.Failure
 import com.ru.appdoggo.domain.type.None
@@ -18,12 +19,7 @@ class AccountRequestsImpl @Inject constructor(
 
     override fun register(username: String, password: String): Either<Failure, None> {
         return requests.make(
-            apiService.register(
-                createMapForRegister(
-                    username,
-                    password
-                )
-            )
+            apiService.register(RegisterDataPost(username, password))
         ) { None() }
     }
 
