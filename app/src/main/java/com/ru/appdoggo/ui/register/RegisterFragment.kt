@@ -1,11 +1,9 @@
 package com.ru.appdoggo.ui.register
 
-import android.app.Application
 import android.os.Bundle
 import android.view.View
 import com.ru.appdoggo.App
 import com.ru.appdoggo.R
-import com.ru.appdoggo.domain.type.Failure
 import com.ru.appdoggo.domain.type.None
 import com.ru.appdoggo.presentation.viewmodel.AccountViewModel
 import com.ru.appdoggo.ui.core.BaseFragment
@@ -39,7 +37,7 @@ class RegisterFragment : BaseFragment() {
         hideSoftKeyboard()
         accountViewModel.register(
             enterEmail.text.toString(),
-            editText2.text.toString()
+            enterPassword.text.toString()
         )
     }
 

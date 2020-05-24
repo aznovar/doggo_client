@@ -2,39 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="df"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:textAlignment="textEnd"
     android:padding="8dp"
-    style="df">
+    android:textAlignment="textEnd">
 
 
     <EditText
         android:id="@+id/enterEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:backgroundTint="@color/whiteAccent"
         android:cursorVisible="true"
         android:ems="10"
+        android:gravity="start|center_vertical"
         android:hint="@string/enter_login"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        android:backgroundTint="@color/whiteAccent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="MissingConstraints"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/enterPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
         android:backgroundTint="@color/whiteAccent"
         android:ems="10"
         android:hint="@string/enter_password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterEmail"
         tools:ignore="MissingConstraints" />
 
@@ -42,24 +46,41 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="start|center_vertical"
         android:text="@string/title_reg"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="28sp"
         tools:ignore="MissingConstraints"
-        />
+        tools:layout_editor_absoluteX="-25dp"
+        tools:layout_editor_absoluteY="25dp" />
 
-    <Button
+    <LinearLayout
         android:id="@+id/button"
         style="@style/Button.Primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="false"
-        android:text="@string/text_on_button"
+        android:layout_marginTop="160dp"
+        android:orientation="vertical"
         android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="@android:color/black"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
-        tools:ignore="MissingConstraints" />
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/enterPassword"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="36dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:gravity="center|top"
+            android:text="@string/text_on_button"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
