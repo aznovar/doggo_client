@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.ru.appdoggo.R
+import com.ru.appdoggo.domain.type.Failure
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -45,6 +47,18 @@ abstract class BaseActivity : AppCompatActivity() {
                 getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
         }
+    }
+
+    fun handleFailure(failure: Failure?) {
+        when (failure) {
+            is Failure.NetworkConnectionError -> showMessageInToast(getString(R.string.error_network))
+            is Failure.ServerError -> showMessageInToast(getString(R.string.error_server))
+            is Failure.UsernameAlreadyExist -> showMessageInToast(getString(R.string.error_username_already_exist))
+        }
+    }
+
+    fun showMessageInToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     inline fun <reified T : ViewModel> viewModel(body: T.() -> Unit): T {

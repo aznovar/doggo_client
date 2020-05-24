@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import com.ru.appdoggo.ui.core.BaseActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.ru.appdoggo.R
+import com.ru.appdoggo.domain.type.Failure
 import javax.inject.Inject
 
 abstract class BaseFragment : Fragment() {
@@ -44,9 +46,11 @@ abstract class BaseFragment : Fragment() {
         return vm
     }
 
-    fun close() = fragmentManager?.popBackStack()
+    fun handleFailure(failure: Failure?) = base { handleFailure(failure) }
 
+    fun close() = fragmentManager?.popBackStack()
 
     fun hideSoftKeyboard() = base { hideSoftKeyboard() }
 
+    fun showMessage(message: String) = base { showMessageInToast(message) }
 }

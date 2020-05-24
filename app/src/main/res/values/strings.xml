@@ -5,4 +5,7 @@
     <string name="enter_password">Введите пароль</string>
     <string name="text_on_button">Зарегистрироваться</string>
     <string name="pass">Пропустить</string>
+    <string name="error_network">Проблема с интернет подключением</string>
+    <string name="error_server">Проблема с подключением к серверу</string>
+    <string name="error_username_already_exist">Имя пользователя уже занято</string>
 </resources>
