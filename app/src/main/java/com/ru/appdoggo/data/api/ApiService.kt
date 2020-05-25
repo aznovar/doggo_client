@@ -1,5 +1,7 @@
 package com.ru.appdoggo.data.api
 
+import com.ru.appdoggo.data.api.account.AuthResponse
+import com.ru.appdoggo.data.api.account.UsernameDataPost
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -11,14 +13,15 @@ interface ApiService {
     companion object {
         const val REGISTRATION_ENDPOINT = "registration"
         const val LOGIN_ENDPOINT = "auth/login"
-
-        const val USERNAME_PARAM = "username"
-        const val PASSWORD_PARAM = "password"
     }
 
     @Headers("Content-Type: application/json")
     @POST(REGISTRATION_ENDPOINT)
-    fun register(@Body registerDataPost: RegisterDataPost): Call<BaseResponse>
+    fun register(@Body registerDataPost: UsernameDataPost): Call<BaseResponse>
+
+    @Headers("Content-Type: application/json")
+    @POST(LOGIN_ENDPOINT)
+    fun login(@Body loginDataPost: UsernameDataPost): Call<AuthResponse>
 }
 
-data class RegisterDataPost(val username: String, val password: String)
+
