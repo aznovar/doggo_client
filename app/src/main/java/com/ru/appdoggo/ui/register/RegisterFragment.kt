@@ -7,6 +7,7 @@ import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.type.None
 import com.ru.appdoggo.presentation.viewmodel.AccountViewModel
 import com.ru.appdoggo.ui.core.BaseFragment
+import com.ru.appdoggo.ui.core.ext.onFailure
 import com.ru.appdoggo.ui.core.ext.onSuccess
 import kotlinx.android.synthetic.main.fragment_register.*
 
@@ -22,6 +23,7 @@ class RegisterFragment : BaseFragment() {
         App.appComponent.inject(this)
         accountViewModel = viewModel {
             onSuccess(registerData, ::handleRegister)
+            onFailure(failureData, ::handleFailure)
         }
     }
 
@@ -42,6 +44,7 @@ class RegisterFragment : BaseFragment() {
     }
 
     private fun handleRegister(none: None? = None()) {
+        showMessage("Аккаунт создан")
     }
 }
 

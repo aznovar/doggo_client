@@ -6,7 +6,7 @@ sealed class Failure{
     object AuthError : Failure()
     object TokenError : Failure()
 
-    object EmailAlreadyExistError : Failure()
+    object UsernameAlreadyExist : Failure()
     object EmailNotRegisteredError : Failure()
     object CantSendEmailError : Failure()
 
