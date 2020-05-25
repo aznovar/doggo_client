@@ -18,8 +18,7 @@ class AccountRequestsImpl @Inject constructor(
 ) : AccountRequests {
 
     override fun register(username: String, password: String): Either<Failure, None> {
-        return requests.make(
-            apiService.register(RegisterDataPost(username, password))
+        return requests.make(apiService.register(RegisterDataPost(username, password))
         ) { None() }
     }
 
