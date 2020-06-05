@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">AppDoggo</string>
     <string name="title_reg">Регистрация</string>
+    <string name="title_auth">Авторизация</string>
     <string name="enter_login">Введите адрес электронной почты</string>
     <string name="enter_password">Введите пароль</string>
-    <string name="text_on_button">Зарегистрироваться</string>
+    <string name="text_on_register_button">Зарегистрироваться</string>
+    <string name="text_on_login_button">Авторизация</string>
     <string name="pass">Пропустить</string>
     <string name="error_network">Проблема с интернет подключением</string>
     <string name="error_server">Проблема с подключением к серверу</string>
