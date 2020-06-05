@@ -25,7 +25,7 @@ class AccountViewModel @Inject constructor(
     //TODO добавить handleAccount
     fun login(email: String, password: String) {
         loginUseCase(Login.Params(email, password)) {
-            it.either(::handleFailure)
+          //  it.either(::handleFailure)
         }
     }
 
