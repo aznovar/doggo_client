@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">AppDoggo</string>
     <string name="title_reg">Регистрация</string>
+    <string name="title_dogInfo">Информация о собаке</string>
     <string name="enter_login">Введите адрес электронной почты</string>
     <string name="enter_password">Введите пароль</string>
     <string name="text_on_button">Зарегистрироваться</string>
     <string name="pass">Пропустить</string>
+    <string name="enter_dog_name">Введите кличку</string>
+    <string name="enter_dog_bday">Укажите дату рождения (можно примерно)</string>
+    <string name="dog_name">Кличка собаки</string>
+    <string name="dog_bday">Дата рождения собаки</string>
+    <string name="text_on_nextButton">Далее</string>
+    <string name="dog_breed">Порода собаки</string>
+    <string name="dog_sex">Пол вашей собаки</string>
+    <string name="enter_dog_breed">Выберите породу</string>
+    <string name="enter_dog_sex">Выберите пол</string>
+    <string name="dog_photo_page">А покажите как выглядит ваш питомец</string>
 </resources>
