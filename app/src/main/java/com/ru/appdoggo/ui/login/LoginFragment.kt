@@ -44,10 +44,6 @@ class LoginFragment : BaseFragment() {
         )
     }
 
-    private fun login(username: String, password: String) {
-        accountViewModel.login(username, password)
-    }
-
     private fun handleAccount(acc: AccountEntity?) {
         showMessage("Аккаунт залогинен")
     }

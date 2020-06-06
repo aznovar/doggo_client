@@ -55,7 +55,7 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="28sp"
-        tools:ignore="MissingConstraints"
+        tools:ignore="MissingConstraints,RtlCompat"
         tools:layout_editor_absoluteX="-25dp"
         tools:layout_editor_absoluteY="25dp" />
 

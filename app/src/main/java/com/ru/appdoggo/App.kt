@@ -3,6 +3,7 @@ package com.ru.appdoggo
 import android.app.Application
 import com.ru.appdoggo.domain.injectors.ApiModule
 import com.ru.appdoggo.domain.injectors.ApplicationModule
+import com.ru.appdoggo.domain.injectors.CacheModule
 import com.ru.appdoggo.domain.injectors.ViewModelModule
 import com.ru.appdoggo.ui.login.LoginActivity
 import com.ru.appdoggo.ui.login.LoginFragment
@@ -30,7 +31,10 @@ class App : Application() {
 }
 
 @Singleton
-@Component(modules = [ApplicationModule::class, ApiModule::class, ViewModelModule::class])
+@Component(
+    modules = [ApplicationModule::class, ApiModule::class, ViewModelModule::class,
+        CacheModule::class]
+)
 interface AppComponent {
 
     fun inject(activity: RegisterActivity)
