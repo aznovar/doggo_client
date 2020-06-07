@@ -63,4 +63,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime:2.2.0"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
+
+    //ui view helpers
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation  "de.hdodenhof:circleimageview:3.0.0"
+
 }
