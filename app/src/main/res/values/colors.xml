@@ -5,4 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="whiteAccent">#FFFFFF</color>
     <color name="blackAccent">#000000</color>
+    <color name="almostChocolate">#8B7F78</color>
+    <color name="chocolate">#1B1B1B</color>
+    <color name="greyest">#E0E0E0</color>
 </resources>

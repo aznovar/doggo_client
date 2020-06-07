@@ -10,4 +10,13 @@
     <string name="error_network">Проблема с интернет подключением</string>
     <string name="error_server">Проблема с подключением к серверу</string>
     <string name="error_username_already_exist">Имя пользователя уже занято</string>
+    <string name="name_in_navigation">Имя пользователя</string>
+    <string name="status_in_navigation">Статус пользователя</string>
+    <string name="chat">Чат</string>
+    <string name="settings">Настройки</string>
+    <string name="logout">Выход</string>
+    <string name="menu">Меню</string>
+    <string name="main_page">Главная</string>
+    <string name="favorites">Избранное</string>
+    <string name="places">Места</string>
 </resources>
