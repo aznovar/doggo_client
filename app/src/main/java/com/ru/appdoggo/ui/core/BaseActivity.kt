@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.type.Failure
 import javax.inject.Inject
@@ -32,6 +33,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun setupContent() {
         setContentView(contentId)
+        val navController = findNavController(R.id.nav_host_fragment)
     }
 
     override fun onBackPressed() {

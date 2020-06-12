@@ -7,6 +7,7 @@ import com.ru.appdoggo.domain.injectors.CacheModule
 import com.ru.appdoggo.domain.injectors.ViewModelModule
 import com.ru.appdoggo.ui.login.LoginActivity
 import com.ru.appdoggo.ui.login.LoginFragment
+import com.ru.appdoggo.ui.main_page.MainPageFragment
 import com.ru.appdoggo.ui.register.RegisterActivity
 import com.ru.appdoggo.ui.register.RegisterFragment
 import dagger.Component
@@ -44,4 +45,6 @@ interface AppComponent {
     fun inject(activity: LoginActivity)
 
     fun inject(fragment: LoginFragment)
+
+    fun inject(fragment: MainPageFragment)
 }

@@ -3,18 +3,13 @@
 
     <item
         android:id="@+id/navigation_menu"
-        android:icon="@drawable/menu_button"
-        android:title="@string/menu" />
+        android:icon="@drawable/profile_icon"
+        android:title="@string/profile" />
 
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/mainpage_button"
         android:title="@string/main_page" />
-
-    <item
-        android:id="@+id/navigation_favorites"
-        android:icon="@drawable/favorite_button"
-        android:title="@string/favorites" />
 
     <item
         android:id="@+id/navigation_places"

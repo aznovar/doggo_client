@@ -2,6 +2,7 @@
     <string name="app_name">AppDoggo</string>
     <string name="title_reg">Регистрация</string>
     <string name="title_auth">Авторизация</string>
+    <string name="title_main_page">Главная страница</string>
     <string name="enter_login">Введите адрес электронной почты</string>
     <string name="enter_password">Введите пароль</string>
     <string name="text_on_register_button">Зарегистрироваться</string>
@@ -15,7 +16,7 @@
     <string name="chat">Чат</string>
     <string name="settings">Настройки</string>
     <string name="logout">Выход</string>
-    <string name="menu">Меню</string>
+    <string name="profile">Профиль</string>
     <string name="main_page">Главная</string>
     <string name="favorites">Избранное</string>
     <string name="places">Места</string>
