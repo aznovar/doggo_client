@@ -2,6 +2,8 @@ package com.ru.appdoggo.ui.login
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ru.appdoggo.App
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.entities.account.AccountEntity
@@ -46,5 +48,9 @@ class LoginFragment : BaseFragment() {
 
     private fun handleAccount(acc: AccountEntity?) {
         showMessage("Аккаунт залогинен")
+        activity?.let {
+            startPoint.showHome(it)
+            it.finish()
+        }
     }
 }

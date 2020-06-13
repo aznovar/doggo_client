@@ -5,8 +5,10 @@ import com.ru.appdoggo.domain.injectors.ApiModule
 import com.ru.appdoggo.domain.injectors.ApplicationModule
 import com.ru.appdoggo.domain.injectors.CacheModule
 import com.ru.appdoggo.domain.injectors.ViewModelModule
+import com.ru.appdoggo.ui.core.StartActivity
 import com.ru.appdoggo.ui.login.LoginActivity
 import com.ru.appdoggo.ui.login.LoginFragment
+import com.ru.appdoggo.ui.main_page.HomeActivity
 import com.ru.appdoggo.ui.main_page.MainPageFragment
 import com.ru.appdoggo.ui.register.RegisterActivity
 import com.ru.appdoggo.ui.register.RegisterFragment
@@ -43,6 +45,10 @@ interface AppComponent {
     fun inject(fragment: RegisterFragment)
 
     fun inject(activity: LoginActivity)
+
+    fun inject(activity: StartActivity)
+
+    fun inject(activity: HomeActivity)
 
     fun inject(fragment: LoginFragment)
 
