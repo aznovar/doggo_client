@@ -8,12 +8,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.type.Failure
+import com.ru.appdoggo.presentation.viewmodel.BaseViewModel
+import com.ru.appdoggo.presentation.viewmodel.BottomNavigationViewModel
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -21,19 +26,25 @@ abstract class BaseActivity : AppCompatActivity() {
     abstract var fragment: BaseFragment
 
     @Inject
+    lateinit var startPoint: StartPoint
+
+    @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private lateinit var mainViewModel: BottomNavigationViewModel
 
     open val contentId = R.layout.activity_layout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupContent()
+        setupBottomNavigation()
         addFragment(savedInstanceState)
     }
 
     open fun setupContent() {
         setContentView(contentId)
-        val navController = findNavController(R.id.nav_host_fragment)
+
     }
 
     override fun onBackPressed() {
@@ -73,6 +84,22 @@ abstract class BaseActivity : AppCompatActivity() {
         savedInstanceState ?: supportFragmentManager.inTransaction {
             add(R.id.fragmentContainer, fragment)
         }
+    }
+
+     fun setupBottomNavigation(){
+        mainViewModel = ViewModelProvider(this).get(BottomNavigationViewModel::class.java)
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navController = findNavController(R.id.nav_host_fragment)
+        navView.setupWithNavController(navController)
+        mainViewModel.bottomNavigationVisibility.observe(this, Observer { navVisibility ->
+            navView.visibility = navVisibility
+        })
+         navController.addOnDestinationChangedListener { _, destination, _ ->
+             when (destination.id) {
+                 R.id.loginFragment -> mainViewModel.hideBottomNavigation()
+                 else -> mainViewModel.showBottomNavigation()
+             }
+         }
     }
 }
 
