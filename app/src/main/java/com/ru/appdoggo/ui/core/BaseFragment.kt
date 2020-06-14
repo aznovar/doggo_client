@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
-import com.ru.appdoggo.ui.core.BaseActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.type.Failure
 import javax.inject.Inject
@@ -18,6 +18,7 @@ abstract class BaseFragment : Fragment() {
     abstract val layoutId: Int
 
     open val titleToolbar = R.string.app_name
+
 
     @Inject
     lateinit var startPoint: StartPoint
@@ -37,7 +38,7 @@ abstract class BaseFragment : Fragment() {
         super.onResume()
     }
 
-    inline fun base(block: BaseActivity.() -> Unit) {
+    open fun base(block: BaseActivity.() -> Unit) {
         activity.base(block)
     }
 

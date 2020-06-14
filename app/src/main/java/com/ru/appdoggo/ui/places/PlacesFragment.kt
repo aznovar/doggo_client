@@ -8,7 +8,7 @@ import com.ru.appdoggo.R
 import com.ru.appdoggo.ui.core.BaseFragment
 
 class PlacesFragment : BaseFragment() {
-    override val layoutId = R.id.placesFragment
+    override val layoutId = R.id.places
     override val titleToolbar = R.string.title_auth
 
     override fun onCreateView(

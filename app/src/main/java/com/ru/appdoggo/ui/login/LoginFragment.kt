@@ -19,6 +19,9 @@ class LoginFragment : BaseFragment() {
     override val layoutId = R.layout.fragment_login
     override val titleToolbar = R.string.title_auth
 
+    val navController = findNavController()
+
+
     private lateinit var accountViewModel: AccountViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +47,7 @@ class LoginFragment : BaseFragment() {
             enterEmail.text.toString(),
             enterPassword.text.toString()
         )
+        navController.navigate(R.id.mainPage)
     }
 
     private fun handleAccount(acc: AccountEntity?) {

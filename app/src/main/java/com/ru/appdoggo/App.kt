@@ -5,6 +5,8 @@ import com.ru.appdoggo.domain.injectors.ApiModule
 import com.ru.appdoggo.domain.injectors.ApplicationModule
 import com.ru.appdoggo.domain.injectors.CacheModule
 import com.ru.appdoggo.domain.injectors.ViewModelModule
+import com.ru.appdoggo.ui.core.BaseActivity
+import com.ru.appdoggo.ui.core.MainActivity
 import com.ru.appdoggo.ui.core.StartActivity
 import com.ru.appdoggo.ui.login.LoginActivity
 import com.ru.appdoggo.ui.login.LoginFragment
@@ -49,6 +51,8 @@ interface AppComponent {
     fun inject(activity: StartActivity)
 
     fun inject(activity: HomeActivity)
+
+    fun inject(activity: BaseActivity)
 
     fun inject(fragment: LoginFragment)
 

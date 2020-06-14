@@ -8,7 +8,7 @@ import com.ru.appdoggo.R
 import com.ru.appdoggo.ui.core.BaseFragment
 
 class ProfileFragment : BaseFragment() {
-    override val layoutId = R.id.profileFragment
+    override val layoutId = R.id.profile
     override val titleToolbar = R.string.title_auth
 
     override fun onCreateView(
