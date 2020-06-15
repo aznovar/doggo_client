@@ -5,6 +5,6 @@ import com.ru.appdoggo.ui.core.BaseFragment
 
 class HomeActivity : BaseActivity() {
 
-    override var fragment: BaseFragment = MainPageFragment()
+     var fragment: BaseFragment = MainPageFragment()
 
 }

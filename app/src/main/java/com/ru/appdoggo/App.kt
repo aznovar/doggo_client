@@ -5,11 +5,15 @@ import com.ru.appdoggo.domain.injectors.ApiModule
 import com.ru.appdoggo.domain.injectors.ApplicationModule
 import com.ru.appdoggo.domain.injectors.CacheModule
 import com.ru.appdoggo.domain.injectors.ViewModelModule
+import com.ru.appdoggo.ui.core.BaseActivity
+import com.ru.appdoggo.ui.core.MainActivity
 import com.ru.appdoggo.ui.core.StartActivity
 import com.ru.appdoggo.ui.login.LoginActivity
 import com.ru.appdoggo.ui.login.LoginFragment
 import com.ru.appdoggo.ui.main_page.HomeActivity
 import com.ru.appdoggo.ui.main_page.MainPageFragment
+import com.ru.appdoggo.ui.places.PlacesFragment
+import com.ru.appdoggo.ui.profile.ProfileFragment
 import com.ru.appdoggo.ui.register.RegisterActivity
 import com.ru.appdoggo.ui.register.RegisterFragment
 import dagger.Component
@@ -50,7 +54,15 @@ interface AppComponent {
 
     fun inject(activity: HomeActivity)
 
+    fun inject(activity: BaseActivity)
+
     fun inject(fragment: LoginFragment)
 
     fun inject(fragment: MainPageFragment)
+
+    fun inject(fragment: ProfileFragment)
+
+    fun inject(fragment: PlacesFragment)
+
+
 }

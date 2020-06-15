@@ -4,26 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.ru.appdoggo.App
 import com.ru.appdoggo.R
 import com.ru.appdoggo.ui.core.BaseFragment
 
 class ProfileFragment : BaseFragment() {
-    override val layoutId = R.id.profileFragment
+    override val layoutId = R.layout.fragment_profile
     override val titleToolbar = R.string.title_auth
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        App.appComponent.inject(this)
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }

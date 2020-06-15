@@ -7,5 +7,5 @@ import com.ru.appdoggo.ui.core.BaseFragment
 
 class RegisterActivity : BaseActivity() {
 
-    override var fragment: BaseFragment = RegisterFragment()
+     var fragment: BaseFragment = RegisterFragment()
 }

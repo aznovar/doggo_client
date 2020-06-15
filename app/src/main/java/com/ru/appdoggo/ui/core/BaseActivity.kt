@@ -3,27 +3,28 @@ package com.ru.appdoggo.ui.core
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.type.Failure
-import com.ru.appdoggo.presentation.viewmodel.BaseViewModel
 import com.ru.appdoggo.presentation.viewmodel.BottomNavigationViewModel
+import com.ru.appdoggo.ui.login.LoginFragment
 import javax.inject.Inject
 
-abstract class BaseActivity : AppCompatActivity() {
-
-    abstract var fragment: BaseFragment
+open class BaseActivity : AppCompatActivity() {
 
     @Inject
     lateinit var startPoint: StartPoint
@@ -33,19 +34,40 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private lateinit var mainViewModel: BottomNavigationViewModel
 
+
+
     open val contentId = R.layout.activity_layout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupContent()
         setupBottomNavigation()
-        addFragment(savedInstanceState)
     }
 
     open fun setupContent() {
         setContentView(contentId)
-
     }
+
+    open fun setupBottomNavigation() {
+        val navController = findNavController(R.id.nav_host_fragment)
+        val navigationView: BottomNavigationView = findViewById(R.id.bottom_nav_view)
+        navigationView.setupWithNavController(navController)
+        mainViewModel = ViewModelProvider(this).get(BottomNavigationViewModel::class.java)
+        mainViewModel.bottomNavigationVisibility.observe(this, Observer { navVisibility ->
+            navigationView.visibility = navVisibility
+        })
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.login -> mainViewModel.hideBottomNavigation()
+                else -> mainViewModel.showBottomNavigation()
+            }
+        }
+    }
+
+//    inline fun navigateToDestination(id: Int) {
+//        navController.navigate(id)
+//    }
 
     override fun onBackPressed() {
         (supportFragmentManager.findFragmentById(
@@ -80,32 +102,15 @@ abstract class BaseActivity : AppCompatActivity() {
         return vm
     }
 
-    fun addFragment(savedInstanceState: Bundle? = null, fragment: BaseFragment = this.fragment) {
-        savedInstanceState ?: supportFragmentManager.inTransaction {
-            add(R.id.fragmentContainer, fragment)
-        }
-    }
-
-     fun setupBottomNavigation(){
-        mainViewModel = ViewModelProvider(this).get(BottomNavigationViewModel::class.java)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
-        navView.setupWithNavController(navController)
-        mainViewModel.bottomNavigationVisibility.observe(this, Observer { navVisibility ->
-            navView.visibility = navVisibility
-        })
-         navController.addOnDestinationChangedListener { _, destination, _ ->
-             when (destination.id) {
-                 R.id.loginFragment -> mainViewModel.hideBottomNavigation()
-                 else -> mainViewModel.showBottomNavigation()
-             }
-         }
+    fun show(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.nav_host_fragment, fragment)
+            .commit()
     }
 }
-
-inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) =
-    beginTransaction().func().commit()
 
 inline fun Activity?.base(block: BaseActivity.() -> Unit) {
     (this as? BaseActivity)?.let(block)
 }
+

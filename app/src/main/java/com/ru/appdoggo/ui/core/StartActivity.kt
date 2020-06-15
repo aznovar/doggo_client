@@ -11,9 +11,10 @@ class StartActivity : AppCompatActivity() {
     @Inject
     lateinit var startPoint: StartPoint
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         App.appComponent.inject(this)
     }
+
+    
 }
