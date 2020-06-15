@@ -51,9 +51,6 @@ open class BaseActivity : AppCompatActivity() {
     open fun setupBottomNavigation() {
         val navController = findNavController(R.id.nav_host_fragment)
         val navigationView: BottomNavigationView = findViewById(R.id.bottom_nav_view)
-        val appBarConfiguration =
-            AppBarConfiguration(setOf(R.id.places, R.id.mainPage, R.id.profile))
-        setupActionBarWithNavController(navController,appBarConfiguration)
         navigationView.setupWithNavController(navController)
         mainViewModel = ViewModelProvider(this).get(BottomNavigationViewModel::class.java)
         mainViewModel.bottomNavigationVisibility.observe(this, Observer { navVisibility ->

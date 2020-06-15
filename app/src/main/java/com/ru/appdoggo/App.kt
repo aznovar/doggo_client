@@ -12,6 +12,8 @@ import com.ru.appdoggo.ui.login.LoginActivity
 import com.ru.appdoggo.ui.login.LoginFragment
 import com.ru.appdoggo.ui.main_page.HomeActivity
 import com.ru.appdoggo.ui.main_page.MainPageFragment
+import com.ru.appdoggo.ui.places.PlacesFragment
+import com.ru.appdoggo.ui.profile.ProfileFragment
 import com.ru.appdoggo.ui.register.RegisterActivity
 import com.ru.appdoggo.ui.register.RegisterFragment
 import dagger.Component
@@ -57,4 +59,10 @@ interface AppComponent {
     fun inject(fragment: LoginFragment)
 
     fun inject(fragment: MainPageFragment)
+
+    fun inject(fragment: ProfileFragment)
+
+    fun inject(fragment: PlacesFragment)
+
+
 }
