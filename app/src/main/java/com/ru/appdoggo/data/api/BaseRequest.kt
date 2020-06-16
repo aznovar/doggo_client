@@ -40,7 +40,7 @@ class BaseRequest @Inject constructor(private val networkHandler: NetworkHandler
 }
 
 fun <T : BaseResponse> Response<T>.isSucceed(): Boolean {
-    return isSuccessful && body() != null && (body() as BaseResponse).success == 1
+    return isSuccessful && body() != null
 }
 
 fun <T : BaseResponse> Response<T>.parseError(): Failure {
