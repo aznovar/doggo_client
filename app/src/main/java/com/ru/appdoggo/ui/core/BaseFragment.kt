@@ -19,7 +19,6 @@ abstract class BaseFragment : Fragment() {
 
     open val titleToolbar = R.string.app_name
 
-
     @Inject
     lateinit var startPoint: StartPoint
 

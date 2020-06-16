@@ -20,4 +20,5 @@
     <string name="main_page">Главная</string>
     <string name="favorites">Избранное</string>
     <string name="places">Места</string>
+    <string name="welcome">Добро пожаловать</string>
 </resources>

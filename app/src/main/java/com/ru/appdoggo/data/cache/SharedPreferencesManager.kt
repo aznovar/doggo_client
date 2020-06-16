@@ -29,7 +29,6 @@ class SharedPreferencesManager @Inject constructor(private val preferences: Shar
         return Either.Right(preferences.getString(ACC_TOKEN, ""))
     }
 
-    //TODO - доавить поля, которые могут вернуться с сервера
     fun saveAccount(account: AccountEntity): Either<Failure, None> {
         preferences.edit().apply {
             putLong(ACC_ID, account.id)
@@ -59,7 +58,7 @@ class SharedPreferencesManager @Inject constructor(private val preferences: Shar
     }
 
     fun containsAnyAccount(): Boolean {
-        val id = preferences.getLong(ACC_STATUS, 0)
-        return id != 0L
+        val id = preferences.getString(ACC_STATUS, "")
+        return id != ""
     }
 }

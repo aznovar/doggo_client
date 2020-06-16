@@ -3,7 +3,6 @@ package com.ru.appdoggo.ui.core
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,15 +12,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.type.Failure
 import com.ru.appdoggo.presentation.viewmodel.BottomNavigationViewModel
-import com.ru.appdoggo.ui.login.LoginFragment
 import javax.inject.Inject
 
 open class BaseActivity : AppCompatActivity() {
@@ -33,8 +28,6 @@ open class BaseActivity : AppCompatActivity() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var mainViewModel: BottomNavigationViewModel
-
-
 
     open val contentId = R.layout.activity_layout
 
@@ -64,10 +57,6 @@ open class BaseActivity : AppCompatActivity() {
             }
         }
     }
-
-//    inline fun navigateToDestination(id: Int) {
-//        navController.navigate(id)
-//    }
 
     override fun onBackPressed() {
         (supportFragmentManager.findFragmentById(
