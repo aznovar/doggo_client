@@ -22,4 +22,5 @@ class CacheModule {
     @Provides
     fun provideAccountCache(prefsManager: SharedPreferencesManager): AccountCache =
         AccountCacheImplementation(prefsManager)
+
 }

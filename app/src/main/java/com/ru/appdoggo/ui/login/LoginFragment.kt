@@ -2,6 +2,7 @@ package com.ru.appdoggo.ui.login
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ru.appdoggo.App
@@ -18,9 +19,6 @@ class LoginFragment : BaseFragment() {
 
     override val layoutId = R.layout.fragment_login
     override val titleToolbar = R.string.title_auth
-
-    val navController = findNavController()
-
 
     private lateinit var accountViewModel: AccountViewModel
 
@@ -47,14 +45,11 @@ class LoginFragment : BaseFragment() {
             enterEmail.text.toString(),
             enterPassword.text.toString()
         )
-        navController.navigate(R.id.mainPage)
     }
 
     private fun handleAccount(acc: AccountEntity?) {
+        val navController = findNavController()
         showMessage("Аккаунт залогинен")
-        activity?.let {
-            startPoint.showHome(it)
-            it.finish()
-        }
+        navController.navigate(R.id.mainPage)
     }
 }
