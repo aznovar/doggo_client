@@ -49,7 +49,6 @@ open class BaseActivity : AppCompatActivity() {
         mainViewModel.bottomNavigationVisibility.observe(this, Observer { navVisibility ->
             navigationView.visibility = navVisibility
         })
-
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.login -> mainViewModel.hideBottomNavigation()

@@ -53,4 +53,6 @@
             android:text="@string/status_in_navigation"
             android:textColor="#8F8F8F" />
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/bottom_nav_graph"
+    android:id="@+id/main_nav_graph"
     app:startDestination="@id/mainPage">
     <fragment
         android:id="@+id/places"
@@ -16,9 +16,9 @@
         android:label="MainPageFragment"
         tools:layout="@layout/fragment_mainpage" />
 
-    <fragment
+    <activity
         android:id="@+id/profile"
-        android:name="com.ru.appdoggo.ui.profile.ProfileFragment"
+        android:name="com.ru.appdoggo.ui.profile.ProfileActivity"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
 
@@ -27,4 +27,6 @@
         android:name="com.ru.appdoggo.ui.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login" />
+
+
 </navigation>

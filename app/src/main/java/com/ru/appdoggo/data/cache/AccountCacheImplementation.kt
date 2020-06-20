@@ -25,4 +25,8 @@ class AccountCacheImplementation @Inject constructor(
     override fun getAccount(): Either<Failure, AccountEntity> {
         return preferences.getAccount()
     }
+
+    override fun logout(): Either<Failure, None> {
+        return preferences.removeAccount()
+    }
 }
