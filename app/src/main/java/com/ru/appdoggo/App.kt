@@ -5,6 +5,7 @@ import com.ru.appdoggo.domain.injectors.ApiModule
 import com.ru.appdoggo.domain.injectors.ApplicationModule
 import com.ru.appdoggo.domain.injectors.CacheModule
 import com.ru.appdoggo.domain.injectors.ViewModelModule
+import com.ru.appdoggo.ui.chat.ChatFragment
 import com.ru.appdoggo.ui.core.BaseActivity
 import com.ru.appdoggo.ui.core.MainActivity
 import com.ru.appdoggo.ui.core.StartActivity
@@ -13,9 +14,11 @@ import com.ru.appdoggo.ui.login.LoginFragment
 import com.ru.appdoggo.ui.main_page.HomeActivity
 import com.ru.appdoggo.ui.main_page.MainPageFragment
 import com.ru.appdoggo.ui.places.PlacesFragment
+import com.ru.appdoggo.ui.profile.ProfileActivity
 import com.ru.appdoggo.ui.profile.ProfileFragment
 import com.ru.appdoggo.ui.register.RegisterActivity
 import com.ru.appdoggo.ui.register.RegisterFragment
+import com.ru.appdoggo.ui.settings.SettingsFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -56,6 +59,8 @@ interface AppComponent {
 
     fun inject(activity: BaseActivity)
 
+    fun inject(activity: ProfileActivity)
+
     fun inject(fragment: LoginFragment)
 
     fun inject(fragment: MainPageFragment)
@@ -63,6 +68,10 @@ interface AppComponent {
     fun inject(fragment: ProfileFragment)
 
     fun inject(fragment: PlacesFragment)
+
+    fun inject(fragment: ChatFragment)
+
+    fun inject(fragment: SettingsFragment)
 
 
 }

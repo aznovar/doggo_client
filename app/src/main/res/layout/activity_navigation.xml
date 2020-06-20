@@ -8,18 +8,23 @@
     tools:openDrawer="left">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include
+            android:id="@+id/toolbarContainer"
+            layout="@layout/top_toolbar"/>
+
+
         <FrameLayout
             android:id="@+id/fragmentContainer"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/nav_view"
+            android:id="@+id/bottom_nav_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
