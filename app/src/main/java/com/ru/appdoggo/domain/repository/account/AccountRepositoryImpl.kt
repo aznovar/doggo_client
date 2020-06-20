@@ -24,5 +24,9 @@ class AccountRepositoryImpl(
         }
     }
 
+    override fun logout(): Either<Failure, None> {
+        return accCache.logout()
+    }
+
 
 }

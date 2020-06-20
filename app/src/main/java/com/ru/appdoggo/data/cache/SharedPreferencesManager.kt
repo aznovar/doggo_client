@@ -1,6 +1,7 @@
 package com.ru.appdoggo.data.cache
 
 import android.content.SharedPreferences
+import android.drm.DrmInfoRequest.ACCOUNT_ID
 import com.ru.appdoggo.domain.entities.account.AccountEntity
 import com.ru.appdoggo.domain.type.Either
 import com.ru.appdoggo.domain.type.Failure
@@ -60,5 +61,16 @@ class SharedPreferencesManager @Inject constructor(private val preferences: Shar
     fun containsAnyAccount(): Boolean {
         val id = preferences.getString(ACC_STATUS, "")
         return id != ""
+    }
+
+    fun removeAccount(): Either<Failure, None> {
+        preferences.edit().apply {
+            remove(ACC_ID)
+            remove(ACC_NAME)
+            remove(ACC_DATE)
+            remove(ACC_STATUS)
+        }.apply()
+
+        return Either.Right(None())
     }
 }

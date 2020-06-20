@@ -10,4 +10,6 @@ interface AccountRepository {
 
     fun login(username: String, password: String): Either<Failure, AccountEntity>
 
+    fun logout(): Either<Failure, None>
+
 }
