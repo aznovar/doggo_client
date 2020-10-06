@@ -59,6 +59,19 @@
         tools:layout_editor_absoluteX="-25dp"
         tools:layout_editor_absoluteY="25dp" />
 
+    <TextView
+        android:id="@+id/registerPath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|center_horizontal"
+        android:text="Нет аккаунта? Зарегистрироваться"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        tools:ignore="MissingConstraints,RtlCompat"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="488dp" />
+
     <LinearLayout
         android:id="@+id/button"
         style="@style/Button.Primary"
