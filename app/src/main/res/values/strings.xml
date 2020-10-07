@@ -13,8 +13,9 @@
     <string name="error_username_already_exist">Имя пользователя уже занято</string>
     <string name="name_in_navigation">Имя пользователя</string>
     <string name="status_in_navigation">Статус пользователя</string>
-    <string name="chat">Чат</string>
+    <string name="chat">Чаты</string>
     <string name="settings">Настройки</string>
+    <string name="friends">Друзья</string>
     <string name="logout">Выход</string>
     <string name="profile">Профиль</string>
     <string name="main_page">Главная</string>
