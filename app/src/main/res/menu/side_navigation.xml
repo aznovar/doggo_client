@@ -5,7 +5,12 @@
         android:icon="@drawable/message_button"
         android:title="@string/chat" />
     <item
+        android:id="@+id/friends"
+        android:icon="@drawable/friends_icon"
+        android:title="@string/friends" />
+    <item
         android:id="@+id/settings"
         android:icon="@drawable/settings_button"
         android:title="@string/settings" />
+
 </menu>

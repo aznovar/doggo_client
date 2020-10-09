@@ -28,5 +28,11 @@
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login" />
 
+    <fragment
+        android:id="@+id/friends"
+        android:name="com.ru.appdoggo.ui.friends.FriendsFragment"
+        android:label="FriendsFragment"
+        tools:layout="@layout/fragment_friends" />
+
 
 </navigation>
