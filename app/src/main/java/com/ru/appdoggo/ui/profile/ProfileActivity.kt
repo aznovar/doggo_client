@@ -51,7 +51,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
 
-    open fun setupContent() {
+    private fun setupContent() {
         setContentView(contentId)
     }
 

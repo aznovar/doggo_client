@@ -6,7 +6,7 @@
         android:title="@string/chat" />
     <item
         android:id="@+id/friends"
-        android:icon="@drawable/settings_button"
+        android:icon="@drawable/friends_icon"
         android:title="@string/friends" />
     <item
         android:id="@+id/settings"
