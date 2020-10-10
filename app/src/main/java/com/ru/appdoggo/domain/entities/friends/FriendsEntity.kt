@@ -1,4 +1,4 @@
-package com.ru.appdoggo.data.api.friends
+package com.ru.appdoggo.domain.entities.friends
 
 data class FriendsEntity(
     var id: Long,

@@ -1,5 +1,6 @@
 package com.ru.appdoggo.data.api.friends
 
+import com.ru.appdoggo.domain.entities.friends.FriendsEntity
 import com.ru.appdoggo.domain.type.Either
 import com.ru.appdoggo.domain.type.Failure
 import com.ru.appdoggo.domain.type.None

@@ -3,9 +3,9 @@ package com.ru.appdoggo.presentation.viewmodel
 import androidx.lifecycle.MutableLiveData
 import com.ru.appdoggo.domain.entities.account.AccountEntity
 import com.ru.appdoggo.domain.type.None
-import com.ru.appdoggo.domain.usecases.Login
-import com.ru.appdoggo.domain.usecases.Logout
-import com.ru.appdoggo.domain.usecases.Register
+import com.ru.appdoggo.domain.usecases.account.Login
+import com.ru.appdoggo.domain.usecases.account.Logout
+import com.ru.appdoggo.domain.usecases.account.Register
 import javax.inject.Inject
 
 class AccountViewModel @Inject constructor(

@@ -1,6 +1,5 @@
 package com.ru.appdoggo.domain.repository.account
 
-import com.ru.appdoggo.data.api.NetworkResult
 import com.ru.appdoggo.data.api.account.AccountRequests
 import com.ru.appdoggo.data.cache.AccountCache
 import com.ru.appdoggo.domain.entities.account.AccountEntity
