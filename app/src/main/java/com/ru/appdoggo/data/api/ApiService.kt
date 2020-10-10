@@ -4,6 +4,7 @@ import com.ru.appdoggo.data.api.account.AddFriendDataPost
 import com.ru.appdoggo.data.api.account.ApproveFriendRequestDataPost
 import com.ru.appdoggo.data.api.account.AuthResponse
 import com.ru.appdoggo.data.api.account.UsernameDataPost
+import com.ru.appdoggo.data.api.friends.GetFriendshipRequestResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -30,13 +31,15 @@ interface ApiService {
 
     @Headers("Content-Type: application/json")
     @POST(ADD_FRIEND_ENDPOINT)
-    fun addFriend(@Body addFriendDataPost: AddFriendDataPost) : Call<BaseResponse>
+    fun addFriend(@Body addFriendDataPost: AddFriendDataPost): Call<BaseResponse>
 
+    @Headers("Content-Type: application/json")
     @POST(APPROVE_FRIEND_ENDPOINT)
-    fun approveFriendsRequest(@Body approveFriendRequestDataPost: ApproveFriendRequestDataPost)
+    fun approveFriendsRequest(@Body approveFriendRequestDataPost: ApproveFriendRequestDataPost): Call<BaseResponse>
 
+    @Headers("Content-Type: application/json")
     @GET(GET_LIST_OF_FRIEND_REQUESTS)
-    fun getRequestsToAFriend()
+    fun getRequestsToAFriend(@Body userId: Long): Call<GetFriendshipRequestResponse>
 }
 
 
