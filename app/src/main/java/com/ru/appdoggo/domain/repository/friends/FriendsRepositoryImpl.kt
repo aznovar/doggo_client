@@ -23,7 +23,7 @@ class FriendsRepositoryImpl(
             .flatMap { friendsRequests.approveRequestToAFriends(it.id, friendsEntity.id) }
     }
 
-    override fun getListOfFriendshipRequests(userId: Long): Either<Failure, List<FriendsEntity>> {
+    override fun getListOfFriendshipRequests(): Either<Failure, List<FriendsEntity>> {
         return accountCache.getAccount()
             .flatMap { friendsRequests.getRequestsToAFriend(it.id) }
     }

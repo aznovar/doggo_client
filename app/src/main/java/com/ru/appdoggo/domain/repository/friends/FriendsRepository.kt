@@ -11,5 +11,5 @@ interface FriendsRepository {
 
     fun approveFriendshipRequest(approveFriends: FriendsEntity): Either<Failure, None>
 
-    fun getListOfFriendshipRequests(userId: Long): Either<Failure, List<FriendsEntity>>
+    fun getListOfFriendshipRequests(): Either<Failure, List<FriendsEntity>>
 }
