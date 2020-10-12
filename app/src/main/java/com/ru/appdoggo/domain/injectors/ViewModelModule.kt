@@ -37,4 +37,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(PlacesViewModel::class)
     abstract fun bindPlacesViewModel(placesViewModel: PlacesViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(FriendsViewModel::class)
+    abstract fun bindFriendsViewModel(friendsViewModel: FriendsViewModel): ViewModel
 }

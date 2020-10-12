@@ -8,4 +8,6 @@
     <color name="almostChocolate">#8B7F78</color>
     <color name="chocolate">#1B1B1B</color>
     <color name="greyest">#E0E0E0</color>
+    <color name="darkGrey">#454e4f</color>
+    <color name="white">#FFFFFF</color>
 </resources>

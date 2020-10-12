@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/friends"
-        android:name="com.ru.appdoggo.ui.friends.FriendsFragment"
+        android:name="com.ru.appdoggo.ui.friends.FriendsListFragment"
         android:label="FriendsFragment"
         tools:layout="@layout/fragment_friends" />
 
