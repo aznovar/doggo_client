@@ -7,10 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.ru.appdoggo.R
+import com.ru.appdoggo.ui.core.BaseFragment
 
 const val ARG_OBJECT = "object"
 
-class FriendsListFragment : Fragment() {
+class FriendsListFragment : BaseFragment() {
+
+    override val layoutId = R.layout.fragment_item_friends
+    override val titleToolbar = R.string.title_friends
 
     override fun onCreateView(
         inflater: LayoutInflater,
