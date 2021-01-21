@@ -15,7 +15,7 @@ class FriendsFragmentSectionPagerAdapter(fragment: BaseFragment) : FragmentState
         val fragment = FriendsListFragment()
         fragment.arguments = Bundle().apply {
             // Our object is just an integer :-P
-            putInt(ARG_OBJECT, position + 1)
+            putInt("ARG_OBJECT", position + 1)
         }
         return fragment
     }

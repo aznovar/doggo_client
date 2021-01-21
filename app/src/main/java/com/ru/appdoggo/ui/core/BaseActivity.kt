@@ -7,6 +7,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.type.Failure
 import com.ru.appdoggo.presentation.viewmodel.BottomNavigationViewModel
+import kotlinx.android.synthetic.main.activity_navigation.view.*
 import javax.inject.Inject
 
 open class BaseActivity : AppCompatActivity() {
@@ -90,6 +93,8 @@ open class BaseActivity : AppCompatActivity() {
         return vm
     }
 
+
+
     fun show(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
@@ -101,4 +106,7 @@ open class BaseActivity : AppCompatActivity() {
 inline fun Activity?.base(block: BaseActivity.() -> Unit) {
     (this as? BaseActivity)?.let(block)
 }
+
+inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) =
+    beginTransaction().func().commit()
 
