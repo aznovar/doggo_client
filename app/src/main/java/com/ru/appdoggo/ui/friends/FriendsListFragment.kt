@@ -26,6 +26,7 @@ class FriendsListFragment : BaseFragment() {
         arguments?.takeIf { it.containsKey("ARG_OBJECT") }?.apply {
 //            val textView: TextView = view.findViewById(android.R.id.text1)
 //            textView.text = getInt("ARG_OBJECT").toString()
+            // todo закоментил, тк ругается во время выполнения на НПЕ
         }
     }
 }

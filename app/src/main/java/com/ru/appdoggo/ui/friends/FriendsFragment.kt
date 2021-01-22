@@ -34,4 +34,5 @@ class FriendsFragment : BaseFragment() {
             tab.text = "OBJECT ${(position + 1)}"
         }.attach()
     }
+
 }

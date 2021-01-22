@@ -29,10 +29,23 @@
         tools:layout="@layout/fragment_login" />
 
     <fragment
+        android:id="@+id/chat"
+        android:name="com.ru.appdoggo.ui.chat.ChatFragment"
+        android:label="ChatFragment"
+        tools:layout="@layout/fragment_chat"/>
+
+    <fragment
         android:id="@+id/friends"
-        android:name="com.ru.appdoggo.ui.friends.FriendsListFragment"
+        android:name="com.ru.appdoggo.ui.friends.FriendsFragment"
         android:label="FriendsFragment"
-        tools:layout="@layout/fragment_friends" />
+        tools:layout="@layout/fragment_friends"/>
+
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.ru.appdoggo.ui.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings"/>
+
 
 
 </navigation>
