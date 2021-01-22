@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.activity_navigation.view.*
 import kotlinx.android.synthetic.main.top_toolbar.*
 import javax.inject.Inject
 
-open class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {//todo переделать в активити, которая содержит в себе все фрагменты после авторизации
 
     @Inject
     lateinit var startPoint: StartPoint
@@ -58,7 +58,7 @@ open class BaseActivity : AppCompatActivity() {
     open fun setupNavigation() {
         navController = findNavController(R.id.nav_fragment)
         appBarConfiguration = AppBarConfiguration.Builder(
-            R.id.chat, R.id.friends, R.id.settings)
+            R.id.chat, R.id.friends, R.id.settings, R.id.mainPage, R.id.places)
             .setDrawerLayout(drawerLayout)
             .build()
         setSupportActionBar(toolbar) //Set toolbar
