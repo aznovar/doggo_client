@@ -18,9 +18,13 @@ import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.type.None
 import com.ru.appdoggo.presentation.viewmodel.AccountViewModel
 import com.ru.appdoggo.presentation.viewmodel.BottomNavigationViewModel
+import com.ru.appdoggo.presentation.viewmodel.FriendsViewModel
 import com.ru.appdoggo.ui.core.BaseActivity
+import com.ru.appdoggo.ui.core.BaseFragment
 import com.ru.appdoggo.ui.core.ext.onFailure
 import com.ru.appdoggo.ui.core.ext.onSuccess
+import com.ru.appdoggo.ui.core.inTransaction
+import com.ru.appdoggo.ui.friends.FriendsFragment
 import kotlinx.android.synthetic.main.activity_navigation.*
 import kotlinx.android.synthetic.main.navigation.*
 import javax.inject.Inject
@@ -33,6 +37,8 @@ class ProfileActivity : AppCompatActivity() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var accountViewModel: AccountViewModel
+
+    private lateinit var friendsViewModel: FriendsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,11 +54,20 @@ class ProfileActivity : AppCompatActivity() {
         btnLogout.setOnClickListener {
             accountViewModel.logout()
         }
+        //todo произойдет временный запил контейнера с фрагментами, надо будет потом все привести к nav controller'у
+        btnFriendsList.setOnClickListener {
+            replaceFragment(FriendsFragment())
+            closeDrawer()
+        }
     }
 
 
     private fun setupContent() {
         setContentView(contentId)
+    }
+
+    private fun closeDrawer(animate: Boolean = true){
+        drawerLayout.closeDrawer(navigationView, animate)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -103,5 +118,11 @@ class ProfileActivity : AppCompatActivity() {
             putExtra("args", args)
         })
 
+    }
+
+    fun replaceFragment(fragment: BaseFragment) {
+        supportFragmentManager.inTransaction {
+            replace(R.id.fragmentContainer,fragment)
+        }
     }
 }
