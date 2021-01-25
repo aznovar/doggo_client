@@ -28,7 +28,8 @@ import kotlinx.android.synthetic.main.activity_navigation.view.*
 import kotlinx.android.synthetic.main.top_toolbar.*
 import javax.inject.Inject
 
-open class BaseActivity : AppCompatActivity() {
+open class BaseActivity :
+    AppCompatActivity() {//todo переделать в активити, которая содержит в себе все фрагменты после авторизации
 
     @Inject
     lateinit var startPoint: StartPoint
@@ -58,25 +59,13 @@ open class BaseActivity : AppCompatActivity() {
     open fun setupNavigation() {
         navController = findNavController(R.id.nav_fragment)
         appBarConfiguration = AppBarConfiguration.Builder(
-            R.id.chat, R.id.friends, R.id.settings)
+            R.id.chat, R.id.friends, R.id.settings, R.id.mainPage, R.id.places
+        )
             .setDrawerLayout(drawerLayout)
             .build()
         setSupportActionBar(toolbar) //Set toolbar
         setupActionBarWithNavController(navController, appBarConfiguration)
         visibilityNavElements(navController)
-
-//        val navigationView: BottomNavigationView = findViewById(R.id.bottom_nav_view)
-//        navigationView.setupWithNavController(navController)
-//        mainViewModel = ViewModelProvider(this).get(BottomNavigationViewModel::class.java)
-//        mainViewModel.bottomNavigationVisibility.observe(this, Observer { navVisibility ->
-//            navigationView.visibility = navVisibility
-//        })
-//        navController.addOnDestinationChangedListener { _, destination, _ ->
-//            when (destination.id) {
-//                R.id.login -> mainViewModel.hideBottomNavigation()
-//                else -> mainViewModel.showBottomNavigation()
-//            }
-//        }
     }
 
     private fun visibilityNavElements(navController: NavController) {
