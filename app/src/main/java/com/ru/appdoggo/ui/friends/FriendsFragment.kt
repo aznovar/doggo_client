@@ -10,6 +10,11 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.ru.appdoggo.R
 import com.ru.appdoggo.ui.core.BaseFragment
 
+private val FRIENDS_TABS_TITLES = arrayOf(
+    "Список друзей",
+    "Заявки в друзья"
+)
+
 class FriendsFragment : BaseFragment() {
 
     override val layoutId = R.layout.fragment_friends
@@ -31,7 +36,7 @@ class FriendsFragment : BaseFragment() {
         viewPager.adapter = fragmentSectionPagerAdapter
         tabLayout = view.findViewById(R.id.tab_layout)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = "OBJECT ${(position + 1)}"
+            tab.text = FRIENDS_TABS_TITLES[position]
         }.attach()
     }
 
