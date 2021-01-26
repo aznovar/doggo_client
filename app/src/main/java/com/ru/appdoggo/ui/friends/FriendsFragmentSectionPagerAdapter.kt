@@ -9,16 +9,23 @@ class FriendsFragmentSectionPagerAdapter(fragment: BaseFragment) : FragmentState
 
     override fun getItemCount(): Int = 2
 
-
     override fun createFragment(position: Int): Fragment {
         // Return a NEW fragment instance in createFragment(int)
-        val fragment = FriendsListFragment()
-        fragment.arguments = Bundle().apply {
-            putInt("ARG_OBJECT", position + 1)
+        return when (position) {
+            0 -> {
+                return FriendsRequestsFragment()
+            }
+            1 -> {
+                return FriendsListFragment()
+            }
+            else -> return FriendsRequestsFragment()
         }
-        return fragment
+
+//        val fragment = FriendsListFragment()
+//        fragment.arguments = Bundle().apply {
+//            putInt("ARG_OBJECT", position + 1)
+//        }
+//        return fragment
     }
-
-
 
 }
