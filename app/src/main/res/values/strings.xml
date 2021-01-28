@@ -22,6 +22,7 @@
     <string name="profile">Профиль</string>
     <string name="main_page">Главная</string>
     <string name="favorites">Избранное</string>
+    <string name="sendRequest">Отправить запрос</string>
     <string name="places">Места</string>
     <string name="welcome">Добро пожаловать</string>
 </resources>

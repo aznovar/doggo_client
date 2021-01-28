@@ -52,9 +52,4 @@ class FriendsFragment : BaseFragment() {
             view.findNavController().navigate(action)
         }
     }
-
-    private fun addFragment():Fragment{
-        return AddFriendFragment()
-    }
-
 }
