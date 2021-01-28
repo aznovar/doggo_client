@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.ru.appdoggo.R
@@ -38,6 +40,15 @@ class FriendsFragment : BaseFragment() {
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = FRIENDS_TABS_TITLES[position]
         }.attach()
+        addFabAddFriend(view)
+    }
+
+    private fun addFabAddFriend(view: View) {
+        val fab: FloatingActionButton = view.findViewById(R.id.fab)
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
     }
 
 }
