@@ -38,7 +38,11 @@
         android:id="@+id/friends"
         android:name="com.ru.appdoggo.ui.friends.FriendsFragment"
         android:label="FriendsFragment"
-        tools:layout="@layout/fragment_friends"/>
+        tools:layout="@layout/fragment_friends">
+        <action
+            android:id="@+id/action_friends_to_addFriend"
+            app:destination="@id/addFriend" />
+    </fragment>
 
     <fragment
         android:id="@+id/settings"
@@ -46,6 +50,10 @@
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings"/>
 
-
+    <fragment
+        android:id="@+id/addFriend"
+        android:name="com.ru.appdoggo.ui.friends.AddFriendFragment"
+        android:label="AddFriendFragment"
+        tools:layout="@layout/fragment_add_friend"/>
 
 </navigation>

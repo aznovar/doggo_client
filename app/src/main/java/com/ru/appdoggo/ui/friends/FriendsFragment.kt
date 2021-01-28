@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -46,9 +48,13 @@ class FriendsFragment : BaseFragment() {
     private fun addFabAddFriend(view: View) {
         val fab: FloatingActionButton = view.findViewById(R.id.fab)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val action = FriendsFragmentDirections.actionFriendsToAddFriend()
+            view.findNavController().navigate(action)
         }
+    }
+
+    private fun addFragment():Fragment{
+        return AddFriendFragment()
     }
 
 }

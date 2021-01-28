@@ -59,7 +59,7 @@ open class BaseActivity :
     open fun setupNavigation() {
         navController = findNavController(R.id.nav_fragment)
         appBarConfiguration = AppBarConfiguration.Builder(
-            R.id.chat, R.id.friends, R.id.settings, R.id.mainPage, R.id.places
+            R.id.chat, R.id.settings, R.id.mainPage, R.id.places
         )
             .setDrawerLayout(drawerLayout)
             .build()
@@ -71,17 +71,22 @@ open class BaseActivity :
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
+                R.id.friends -> hideBottomNavigation()
+                R.id.addFriend -> hideBottomNavigation()
                 R.id.login -> hideBothNavigation()
                 else -> showBothNavigation()
             }
         }
-
     }
 
     private fun hideBothNavigation() { //Hide both drawer and bottom navigation bar
         side_navigation_view?.visibility = View.GONE
         bottom_nav_view?.visibility = View.GONE
         drawerLayout?.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED) //To lock navigation drawer so that it don't respond to swipe gesture
+    }
+
+    private fun hideBottomNavigation(){
+        bottom_nav_view?.visibility = View.GONE
     }
 
     private fun showBothNavigation() {
