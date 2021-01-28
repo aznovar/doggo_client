@@ -142,23 +142,6 @@ open class BaseActivity :
         return vm
     }
 
-//    fun show(fragment: Fragment) {
-//        supportFragmentManager
-//            .beginTransaction()
-//            .replace(R.id.bottom_nav_fragment, fragment)
-//            .commit()
-//    }
-
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        menuInflater.inflate(R.menu.side_navigation, menu)
-//        return true
-//    }
-
-//    override fun onSupportNavigateUp(): Boolean {
-//        val navController = findNavController(R.id.side_nav_fragment)
-//        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-//    }
 }
 
 inline fun Activity?.base(block: BaseActivity.() -> Unit) {

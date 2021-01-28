@@ -16,7 +16,7 @@ interface ApiService {
     companion object {
         const val REGISTRATION_ENDPOINT = "registration"
         const val LOGIN_ENDPOINT = "auth/login"
-        const val ADD_FRIEND_ENDPOINT = "todo"
+        const val ADD_FRIEND_ENDPOINT = "friendship/addFriend"
         const val APPROVE_FRIEND_ENDPOINT = "todo"
         const val GET_LIST_OF_FRIEND_REQUESTS = "todo"
     }
