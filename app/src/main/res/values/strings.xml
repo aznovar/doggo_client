@@ -3,6 +3,7 @@
     <string name="title_reg">Регистрация</string>
     <string name="title_auth">Авторизация</string>
     <string name="title_friends">Друзья</string>
+    <string name="title_add_friends">Отправить запрос на дружбу</string>
     <string name="title_main_page">Главная страница</string>
     <string name="enter_login">Введите адрес электронной почты</string>
     <string name="enter_password">Введите пароль</string>
