@@ -11,6 +11,7 @@ import com.ru.appdoggo.ui.core.StartActivity
 import com.ru.appdoggo.ui.friends.AddFriendFragment
 import com.ru.appdoggo.ui.friends.FriendsFragment
 import com.ru.appdoggo.ui.friends.FriendsListFragment
+import com.ru.appdoggo.ui.friends.FriendsRequestsFragment
 //import com.ru.appdoggo.ui.login.LoginActivity
 import com.ru.appdoggo.ui.login.LoginFragment
 //import com.ru.appdoggo.ui.main_page.HomeActivity
@@ -80,4 +81,6 @@ interface AppComponent {
     fun inject(fragment: FriendsListFragment)
 
     fun inject(fragment: AddFriendFragment)
+
+    fun inject(fragment: FriendsRequestsFragment)
 }

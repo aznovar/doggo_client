@@ -4,27 +4,62 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.ru.appdoggo.App
 import com.ru.appdoggo.R
+import com.ru.appdoggo.domain.entities.friends.FriendsEntity
+import com.ru.appdoggo.domain.type.None
+import com.ru.appdoggo.presentation.viewmodel.FriendsViewModel
 import com.ru.appdoggo.ui.core.BaseFragment
+import com.ru.appdoggo.ui.core.BaseListFragment
+import com.ru.appdoggo.ui.core.ext.onFailure
+import com.ru.appdoggo.ui.core.ext.onSuccess
 
-class FriendsRequestsFragment: BaseFragment() {
+class FriendsRequestsFragment: BaseListFragment() {
 
-    override val layoutId = R.layout.fragment_friends_requests
-    override val titleToolbar = R.string.friends
+    override val viewAdapter = FriendsRequestsAdapter()
+    override val layoutId = R.layout.inner_fragment_list
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_friends_requests, container, false)
+    private lateinit var friendsViewModel: FriendsViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
+        App.appComponent.inject(this)
+            friendsViewModel = viewModel {
+                onSuccess(getFriendshipRequestData, ::handleFriendRequests)
+                onSuccess(approveFriendshipRequestData, ::handleFriendRequestAction)
+                //todo  onSuccess(cancelFriendData, ::handleFriendRequestAction)
+                onFailure(failureData, ::handleFailure)
+            }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        arguments?.takeIf { it.containsKey("ARG_OBJECT") }?.apply {
-//            val textView: TextView = view.findViewById(android.R.id.text1)
-//            textView.text = getInt("ARG_OBJECT").toString()
-            // todo закоментил, тк ругается во время выполнения на НПЕ
+        super.onViewCreated(view, savedInstanceState)
+        setOnItemClickListener { item, v ->
+            (item as? FriendsEntity)?.let {
+                when (v.id) {
+                    R.id.btnApprove -> {
+                        friendsViewModel.approveFriendship(it)
+                    }
+                }
+            }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        friendsViewModel.getFriendshipRequests()
+    }
+
+    private fun handleFriendRequests(requests: List<FriendsEntity>?) {
+        if (requests != null) {
+            viewAdapter.clear()
+            viewAdapter.add(requests)
+            viewAdapter.notifyDataSetChanged()
+        }
+    }
+
+    private fun handleFriendRequestAction(none: None?) {
+        friendsViewModel.getFriendshipRequests()
     }
 }

@@ -15,9 +15,9 @@ import java.util.*
  */
 object ServiceFactory {
 
-    private const val SERVER_URL = "http://192.168.0.18:8081"
+     const val SERVER_URL = "http://192.168.0.18:8081"
 
-    private const val BASE_URL = "$SERVER_URL/api/v1/"
+     const val BASE_URL = "$SERVER_URL/api/v1/"
 
     fun makeService(isDebug: Boolean): ApiService {
         val okHttpClient = makeOkHttpClient(

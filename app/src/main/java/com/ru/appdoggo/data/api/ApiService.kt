@@ -18,7 +18,7 @@ interface ApiService {
         const val LOGIN_ENDPOINT = "auth/login"
         const val ADD_FRIEND_ENDPOINT = "friendship/addFriend"
         const val APPROVE_FRIEND_ENDPOINT = "todo"
-        const val GET_LIST_OF_FRIEND_REQUESTS = "todo"
+        const val GET_LIST_OF_FRIEND_REQUESTS = "friendship/getRequests/{id}"
     }
 
     @Headers("Content-Type: application/json")
@@ -39,7 +39,7 @@ interface ApiService {
 
     @Headers("Content-Type: application/json")
     @GET(GET_LIST_OF_FRIEND_REQUESTS)
-    fun getRequestsToAFriend(@Body userId: Long): Call<GetFriendshipRequestResponse>
+    fun getRequestsToAFriend(@Path("id") userId: Long): Call<GetFriendshipRequestResponse>
 }
 
 
