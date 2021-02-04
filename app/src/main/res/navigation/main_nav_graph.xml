@@ -56,4 +56,11 @@
         android:label="AddFriendFragment"
         tools:layout="@layout/fragment_add_friend"/>
 
+    <fragment
+        android:id="@+id/friendsRequest"
+        android:name="com.ru.appdoggo.ui.friends.FriendsRequestsFragment"
+        android:label="FriendsRequestFragment"
+        tools:layout="@layout/fragment_friends_requests"
+        />
+
 </navigation>

@@ -8,5 +8,5 @@ class FriendsEntity(
 
     val id: Long,
 
-    val type: Int = 0
+    val type: Int
 )
