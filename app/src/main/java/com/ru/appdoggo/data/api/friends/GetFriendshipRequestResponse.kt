@@ -7,6 +7,5 @@ import com.ru.appdoggo.domain.entities.friends.FriendsEntity
 class GetFriendshipRequestResponse(
     success: Int,
     message: String,
-    @SerializedName("friend_requests")
-    val friendsRequests: List<FriendsEntity>
+    val friendsRequest: List<FriendsEntity>
 ) : BaseResponse(success,message)

@@ -25,7 +25,7 @@ class FriendsRequestsFragment: BaseListFragment() {
         super.onCreate(savedInstanceState)
         App.appComponent.inject(this)
             friendsViewModel = viewModel {
-                onSuccess(getFriendshipRequestData, ::handleFriendRequests)
+               // onSuccess(getFriendshipRequestData, ::handleFriendRequests)
                 onSuccess(approveFriendshipRequestData, ::handleFriendRequestAction)
                 //todo  onSuccess(cancelFriendData, ::handleFriendRequestAction)
                 onFailure(failureData, ::handleFailure)
@@ -51,7 +51,7 @@ class FriendsRequestsFragment: BaseListFragment() {
         friendsViewModel.getFriendshipRequests()
     }
 
-    private fun handleFriendRequests(requests: List<FriendsEntity>?) {
+    private fun handleFriendRequests(requests: List<FriendsEntity>) {
         if (requests != null) {
             viewAdapter.clear()
             viewAdapter.add(requests)
