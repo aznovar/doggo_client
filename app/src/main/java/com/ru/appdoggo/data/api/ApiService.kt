@@ -17,7 +17,7 @@ interface ApiService {
         const val REGISTRATION_ENDPOINT = "registration"
         const val LOGIN_ENDPOINT = "auth/login"
         const val ADD_FRIEND_ENDPOINT = "friendship/addFriend"
-        const val APPROVE_FRIEND_ENDPOINT = "todo"
+        const val APPROVE_FRIENDSHIP_ENDPOINT = "friendship/approveFriendship"
         const val GET_LIST_OF_FRIEND_REQUESTS = "friendship/getRequests/{id}"
     }
 
@@ -34,7 +34,7 @@ interface ApiService {
     fun addFriend(@Body addFriendDataPost: AddFriendDataPost): Call<BaseResponse>
 
     @Headers("Content-Type: application/json")
-    @POST(APPROVE_FRIEND_ENDPOINT)
+    @POST(APPROVE_FRIENDSHIP_ENDPOINT)
     fun approveFriendsRequest(@Body approveFriendRequestDataPost: ApproveFriendRequestDataPost): Call<BaseResponse>
 
     @Headers("Content-Type: application/json")
