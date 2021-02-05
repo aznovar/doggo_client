@@ -15,7 +15,7 @@ class FriendsRepositoryImpl(
 
     override fun addFriend(email: String): Either<Failure, None> {
         return accountCache.getAccount()
-            .flatMap { friendsRequests.addFriend(email,it.id) }
+            .flatMap { friendsRequests.addFriend(email, it.id) }
     }
 
     override fun approveFriendshipRequest(friendsEntity: FriendsEntity): Either<Failure, None> {
@@ -26,5 +26,10 @@ class FriendsRepositoryImpl(
     override fun getListOfFriendshipRequests(): Either<Failure, List<FriendsEntity>> {
         return accountCache.getAccount()
             .flatMap { friendsRequests.getRequestsToAFriend(it.id) }
+    }
+
+    override fun getFriendsList(): Either<Failure, List<FriendsEntity>> {
+        return accountCache.getAccount()
+            .flatMap { friendsRequests.getFriendsList(it.id) }
     }
 }
