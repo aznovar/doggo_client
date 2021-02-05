@@ -12,4 +12,6 @@ interface FriendsRepository {
     fun approveFriendshipRequest(approveFriends: FriendsEntity): Either<Failure, None>
 
     fun getListOfFriendshipRequests(): Either<Failure, List<FriendsEntity>>
+
+    fun getFriendsList(): Either<Failure, List<FriendsEntity>>
 }

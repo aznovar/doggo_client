@@ -83,4 +83,5 @@ interface AppComponent {
     fun inject(fragment: AddFriendFragment)
 
     fun inject(fragment: FriendsRequestsFragment)
+
 }

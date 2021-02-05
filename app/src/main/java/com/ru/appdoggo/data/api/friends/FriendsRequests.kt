@@ -12,4 +12,6 @@ interface FriendsRequests {
     fun approveRequestToAFriends(approveUserId : Long, requestUserId: Long): Either<Failure, None>
 
     fun getRequestsToAFriend(userId : Long): Either<Failure, List<FriendsEntity>>
+
+    fun getFriendsList(userId: Long): Either<Failure, List<FriendsEntity>>
 }
