@@ -1,18 +1,16 @@
 package com.ru.appdoggo.ui.friends
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.ru.appdoggo.App
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.entities.friends.FriendsEntity
 import com.ru.appdoggo.domain.type.None
 import com.ru.appdoggo.presentation.viewmodel.FriendsViewModel
-import com.ru.appdoggo.ui.core.BaseFragment
 import com.ru.appdoggo.ui.core.BaseListFragment
 import com.ru.appdoggo.ui.core.ext.onFailure
 import com.ru.appdoggo.ui.core.ext.onSuccess
+import com.ru.appdoggo.ui.friends.adapters.FriendsRequestsAdapter
 
 class FriendsRequestsFragment: BaseListFragment() {
 

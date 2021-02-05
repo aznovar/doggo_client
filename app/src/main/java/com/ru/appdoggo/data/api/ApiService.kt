@@ -39,7 +39,7 @@ interface ApiService {
     fun approveFriendsRequest(@Body approveFriendRequestDataPost: ApproveFriendRequestDataPost): Call<BaseResponse>
 
     @Headers("Content-Type: application/json")
-    @POST(GET_LIST_FRIENDS)
+    @GET(GET_LIST_FRIENDS)
     fun getFriendshipList(@Path("id") userId: Long): Call<GetFriendshipRequestResponse>
 
     @Headers("Content-Type: application/json")

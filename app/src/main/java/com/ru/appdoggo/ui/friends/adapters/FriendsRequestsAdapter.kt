@@ -1,4 +1,4 @@
-package com.ru.appdoggo.ui.friends
+package com.ru.appdoggo.ui.friends.adapters
 
 import android.view.View
 import com.ru.appdoggo.R
