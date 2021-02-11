@@ -12,14 +12,11 @@ import com.ru.appdoggo.ui.friends.AddFriendFragment
 import com.ru.appdoggo.ui.friends.FriendsFragment
 import com.ru.appdoggo.ui.friends.FriendsListFragment
 import com.ru.appdoggo.ui.friends.FriendsRequestsFragment
-//import com.ru.appdoggo.ui.login.LoginActivity
 import com.ru.appdoggo.ui.login.LoginFragment
-//import com.ru.appdoggo.ui.main_page.HomeActivity
 import com.ru.appdoggo.ui.main_page.MainPageFragment
 import com.ru.appdoggo.ui.places.PlacesFragment
 import com.ru.appdoggo.ui.profile.ProfileActivity
 import com.ru.appdoggo.ui.profile.ProfileFragment
-//import com.ru.appdoggo.ui.register.RegisterActivity
 import com.ru.appdoggo.ui.register.RegisterFragment
 import com.ru.appdoggo.ui.settings.SettingsFragment
 import dagger.Component
@@ -33,7 +30,6 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         initAppComponent()
     }
 
@@ -49,7 +45,6 @@ class App : Application() {
         CacheModule::class]
 )
 interface AppComponent {
-
     //fun inject(activity: RegisterActivity)
 
     fun inject(fragment: RegisterFragment)
