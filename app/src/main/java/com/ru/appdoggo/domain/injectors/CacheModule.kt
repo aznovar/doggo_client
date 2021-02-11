@@ -27,6 +27,12 @@ class CacheModule {
 
     @Provides
     @Singleton
+    fun provideChatDatabase(context: Context): ChatDatabase {
+        return ChatDatabase.getInstance(context)
+    }
+
+    @Provides
+    @Singleton
     fun provideMessagesCache(chatDatabase: ChatDatabase): MessagesCache {
         return chatDatabase.messagesDao
     }
