@@ -1,9 +1,6 @@
 package com.ru.appdoggo.data.api
 
-import com.ru.appdoggo.data.api.account.AddFriendDataPost
-import com.ru.appdoggo.data.api.account.ApproveFriendRequestDataPost
-import com.ru.appdoggo.data.api.account.AuthResponse
-import com.ru.appdoggo.data.api.account.UsernameDataPost
+import com.ru.appdoggo.data.api.account.*
 import com.ru.appdoggo.data.api.friends.GetFriendshipRequestResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -20,6 +17,7 @@ interface ApiService {
         const val APPROVE_FRIENDSHIP_ENDPOINT = "friendship/approveFriendship"
         const val GET_LIST_OF_FRIENDS_REQUESTS = "friendship/getRequests/{id}"
         const val GET_LIST_FRIENDS = "friendship/getFriendshipList/{id}"
+        const val SEND_MESSAGE = "messaging/sendMessage"
     }
 
     @Headers("Content-Type: application/json")
@@ -45,6 +43,10 @@ interface ApiService {
     @Headers("Content-Type: application/json")
     @GET(GET_LIST_OF_FRIENDS_REQUESTS)
     fun getRequestsToAFriend(@Path("id") userId: Long): Call<GetFriendshipRequestResponse>
+
+    @Headers("Content-Type: application/json")
+    @POST(SEND_MESSAGE)
+    fun sendMessage(@Body sendMessageDataPost: SendMessageDataPost): Call<BaseResponse>
 }
 
 
