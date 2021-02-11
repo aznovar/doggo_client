@@ -34,14 +34,13 @@ data class MessageEntity(
 data class ContactEntity(
     @SerializedName("user_id")
     var id: Long,
-    var name: String,
-    var image: String
+    var name: String
 )
 
 class ContactConverter {
     @TypeConverter
     fun toString(contact: ContactEntity?): String? {
-        return if (contact == null) null else "${contact.id}||${contact.name}||${contact.image}"
+        return if (contact == null) null else "${contact.id}||${contact.name}"
     }
 
     @TypeConverter
@@ -50,7 +49,7 @@ class ContactConverter {
             null
         } else {
             val arr = string.split("||")
-            ContactEntity(arr[0].toLong(), arr[1], arr[2])
+            ContactEntity(arr[0].toLong(), arr[1])
         }
     }
 }
