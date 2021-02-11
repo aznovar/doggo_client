@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.ru.appdoggo.domain.entities.chat.MessageEntity
 
+@Dao
 interface MessagesDao : MessagesCache {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

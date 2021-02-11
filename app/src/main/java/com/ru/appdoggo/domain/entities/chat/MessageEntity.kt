@@ -1,12 +1,10 @@
 package com.ru.appdoggo.domain.entities.chat
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
+import androidx.room.*
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "messages_table")
+@TypeConverters(ContactConverter::class)
 data class MessageEntity(
     @PrimaryKey
     @SerializedName("message_id")
