@@ -9,7 +9,7 @@ class SendMessage @Inject constructor(
     private val messageRepository: MessageRepository
 ): UseCase<None, SendMessage.Params>() {
 
-    override suspend fun run(params: Params) = messageRepository.sendMessage(params.toId, params.message, params.messageTypeId)
+    override suspend fun run(params: Params) = messageRepository.sendMessage(params.toId, params.message)
 
-    data class Params(val toId: Long, val message: String, val messageTypeId: Int)
+    data class Params(val toId: Long, val message: String)
 }

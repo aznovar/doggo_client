@@ -6,5 +6,5 @@ import com.ru.appdoggo.domain.type.None
 
 interface MessageRepository {
 
-    fun sendMessage(toId: Long, message:String, messageTypeId:Int) : Either<Failure, None>
+    fun sendMessage(toId: Long, message:String) : Either<Failure, None>
 }

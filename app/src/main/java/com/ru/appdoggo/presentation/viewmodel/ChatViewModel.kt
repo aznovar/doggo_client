@@ -12,8 +12,8 @@ class ChatViewModel @Inject constructor(
     val sendMessageData: MutableLiveData<None> = MutableLiveData()
 
 
-    fun sendMessage(toId: Long, message: String, messageTypeId: Int) {
-        sendMessageUseCase(SendMessage.Params(toId, message, messageTypeId))
+    fun sendMessage(toId: Long, message: String) {
+        sendMessageUseCase(SendMessage.Params(toId, message))
         { it.either(::handleFailure) { handleSendMessage(it, toId) } }
     }
 
