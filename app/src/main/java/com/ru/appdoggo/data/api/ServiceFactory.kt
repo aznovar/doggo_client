@@ -15,7 +15,7 @@ import java.util.*
  */
 object ServiceFactory {
 
-     const val SERVER_URL = "http://192.168.0.18:8081"
+     const val SERVER_URL = "http://192.168.0.12:8081"
 
      const val BASE_URL = "$SERVER_URL/api/v1/"
 

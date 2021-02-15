@@ -2,15 +2,14 @@ package com.ru.appdoggo.domain.repository.friends
 
 import com.ru.appdoggo.data.api.friends.FriendsRequests
 import com.ru.appdoggo.data.cache.AccountCache
+import com.ru.appdoggo.data.cache.friends.FriendsCache
 import com.ru.appdoggo.domain.entities.friends.FriendsEntity
-import com.ru.appdoggo.domain.type.Either
-import com.ru.appdoggo.domain.type.Failure
-import com.ru.appdoggo.domain.type.None
-import com.ru.appdoggo.domain.type.flatMap
+import com.ru.appdoggo.domain.type.*
 
 class FriendsRepositoryImpl(
     private val friendsRequests: FriendsRequests,
-    private val accountCache: AccountCache
+    private val accountCache: AccountCache,
+    private val friendsCache: FriendsCache
 ) : FriendsRepository {
 
     override fun addFriend(email: String): Either<Failure, None> {
@@ -23,13 +22,30 @@ class FriendsRepositoryImpl(
             .flatMap { friendsRequests.approveRequestToAFriends(it.id, friendsEntity.id) }
     }
 
-    override fun getListOfFriendshipRequests(): Either<Failure, List<FriendsEntity>> {
+    override fun getListOfFriendshipRequests(needFetch: Boolean): Either<Failure, List<FriendsEntity>> {
         return accountCache.getAccount()
-            .flatMap { friendsRequests.getRequestsToAFriend(it.id) }
+            .flatMap {
+                return@flatMap if (needFetch) {
+                    friendsRequests.getRequestsToAFriend(it.id)
+                } else {
+                    Either.Right(friendsCache.getFriendRequests())
+                }
+            }
+            .onNext { it.map {
+                it.type = 1
+                friendsCache.saveFriend(it)
+            } }
     }
 
-    override fun getFriendsList(): Either<Failure, List<FriendsEntity>> {
+    override fun getFriendsList(needFetch: Boolean): Either<Failure, List<FriendsEntity>> {
         return accountCache.getAccount()
-            .flatMap { friendsRequests.getFriendsList(it.id) }
+            .flatMap {
+                return@flatMap if (needFetch) {
+                    friendsRequests.getFriendsList(it.id)
+                } else {
+                    Either.Right(friendsCache.getFriends())
+                }
+            }
+            .onNext { it.map { friendsCache.saveFriend(it) } }
     }
 }

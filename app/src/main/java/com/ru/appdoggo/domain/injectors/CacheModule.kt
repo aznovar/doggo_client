@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import com.ru.appdoggo.data.cache.AccountCache
 import com.ru.appdoggo.data.cache.AccountCacheImplementation
 import com.ru.appdoggo.data.cache.SharedPreferencesManager
+import com.ru.appdoggo.data.cache.friends.FriendsCache
 import com.ru.appdoggo.data.cache.message.MessagesCache
 import com.ru.appdoggo.data.db.ChatDatabase
 import dagger.Module
@@ -29,6 +30,12 @@ class CacheModule {
     @Singleton
     fun provideChatDatabase(context: Context): ChatDatabase {
         return ChatDatabase.getInstance(context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFriendsCache(chatDatabase: ChatDatabase): FriendsCache {
+        return chatDatabase.friendsDao
     }
 
     @Provides
