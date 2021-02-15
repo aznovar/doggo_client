@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.ru.appdoggo.data.cache.friends.FriendsDao
 import com.ru.appdoggo.data.cache.message.MessagesDao
 import com.ru.appdoggo.domain.entities.chat.MessageEntity
+import com.ru.appdoggo.domain.entities.friends.FriendsEntity
 
-@Database(entities = [MessageEntity::class], version = 5, exportSchema = false)
+@Database(entities = [MessageEntity::class, FriendsEntity::class], version = 5, exportSchema = false)
 abstract class ChatDatabase: RoomDatabase() {
-
+    abstract val friendsDao: FriendsDao
     abstract val messagesDao: MessagesDao
 
     companion object {

@@ -21,12 +21,12 @@ class FriendsViewModel @Inject constructor(
     var getFriendshipRequestData : MutableLiveData<List<FriendsEntity>> = MutableLiveData()
     var getFriendsListData : MutableLiveData<List<FriendsEntity>> = MutableLiveData()
 
-    fun getFriendsList(){
-        getFriendsListUseCase(None()){it.either(::handleFailure, ::handleListOfFriendRequests)}
+    fun getFriendsList(needFetch: Boolean = true){
+        getFriendsListUseCase(needFetch){it.either(::handleFailure, ::handleListOfFriendRequests)}
     }
 
-    fun getFriendshipRequests(){
-        getListOfFriendshipRequestsUseCase(None()){it.either(::handleFailure, ::handleFriendshipRequests)}
+    fun getFriendshipRequests(needFetch: Boolean = false){
+        getListOfFriendshipRequestsUseCase(needFetch){it.either(::handleFailure, ::handleFriendshipRequests)}
     }
 
     fun addFriend(email: String) {

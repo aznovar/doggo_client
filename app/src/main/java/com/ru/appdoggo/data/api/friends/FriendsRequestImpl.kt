@@ -26,10 +26,10 @@ class FriendsRequestImpl @Inject constructor(
     }
 
     override fun getRequestsToAFriend(userId: Long): Either<Failure, List<FriendsEntity>> {
-        return requests.make(apiService.getRequestsToAFriend(userId)){it.listOfUsers}
+        return requests.make(apiService.getRequestsToAFriend(userId)){it.friendsList}
     }
 
     override fun getFriendsList(userId: Long): Either<Failure, List<FriendsEntity>> {
-        return requests.make(apiService.getFriendshipList(userId)){it.listOfUsers}
+        return requests.make(apiService.getFriendshipList(userId)){it.friendsList}
     }
 }

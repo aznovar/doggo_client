@@ -4,6 +4,7 @@ import android.content.Context
 import com.ru.appdoggo.data.api.account.AccountRequests
 import com.ru.appdoggo.data.api.friends.FriendsRequests
 import com.ru.appdoggo.data.cache.AccountCache
+import com.ru.appdoggo.data.cache.friends.FriendsCache
 import com.ru.appdoggo.domain.repository.account.AccountRepository
 import com.ru.appdoggo.domain.repository.account.AccountRepositoryImpl
 import com.ru.appdoggo.domain.repository.friends.FriendsRepository
@@ -27,7 +28,7 @@ class ApplicationModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun provideFriendsRepository(remote: FriendsRequests, cache: AccountCache): FriendsRepository {
-        return FriendsRepositoryImpl(remote, cache)
+    fun provideFriendsRepository(remote: FriendsRequests, accCache: AccountCache, frCache: FriendsCache): FriendsRepository {
+        return FriendsRepositoryImpl(remote, accCache,frCache)
     }
 }
