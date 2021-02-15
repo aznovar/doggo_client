@@ -10,39 +10,54 @@
             type="com.ru.appdoggo.domain.entities.chat.MessageEntity" />
 
     </data>
-
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:layout_collapseMode="pin"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/chocolate"
+        app:itemTextColor="@android:color/white"
+        app:itemIconTint="@android:color/white"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <RelativeLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/rlMain"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
+        android:divider="@drawable/contact_divider"
         android:focusable="true"
-        android:divider="@drawable/contact_divider">
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_centerVertical="true"
             android:id="@+id/imgPhoto"
             android:layout_width="@dimen/account_photo_dim"
             android:layout_height="@dimen/account_photo_dim"
-            android:src="@drawable/ic_account_circle"/>
-<!--            app:profileImage="@{message.contact.image}"/>-->
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_account_circle" />
+        <!--            app:profileImage="@{message.contact.image}"/>-->
 
         <LinearLayout
-            android:layout_centerVertical="true"
             android:id="@+id/contact_name_and_status"
-            android:layout_toRightOf="@+id/imgPhoto"
-            android:layout_toEndOf="@+id/imgPhoto"
             android:layout_width="wrap_content"
-            android:layout_marginLeft="@dimen/small_margin"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_toEndOf="@+id/imgPhoto"
+            android:layout_toRightOf="@+id/imgPhoto"
             android:orientation="vertical"
-            android:padding="8dp"
-            android:layout_marginStart="@dimen/small_margin">
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/tvName"
@@ -61,23 +76,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:maxLines="1"
                 android:ellipsize="end"
+                android:maxLines="1"
                 android:text="@{message.message}"
-                tools:text="Текст"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:text="Текст" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Дата"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
             android:textSize="14sp"
             app:date="@{message.date}"
-            android:layout_alignParentEnd="true"
-            android:layout_centerInParent="true">
-        </TextView>
+            tools:text="Дата"></TextView>
 
     </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 </layout>

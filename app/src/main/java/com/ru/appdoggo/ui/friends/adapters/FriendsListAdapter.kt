@@ -15,10 +15,10 @@ open class FriendsListAdapter : BaseAdapter<FriendsListAdapter.FriendsListViewHo
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): FriendsListAdapter.FriendsListViewHolder {
+    ): FriendsListViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemFriendsListBinding.inflate(layoutInflater, parent, false)
-        return FriendsListAdapter.FriendsListViewHolder(binding)
+        return FriendsListViewHolder(binding)
     }
 
     class FriendsListViewHolder(val binding: ItemFriendsListBinding) :

@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.type.Failure
+import kotlinx.android.synthetic.main.top_toolbar.*
 import javax.inject.Inject
 
 abstract class BaseFragment : Fragment() {
@@ -18,6 +19,9 @@ abstract class BaseFragment : Fragment() {
     abstract val layoutId: Int
 
     open val titleToolbar = R.string.app_name
+
+    open val showToolbar = true
+
 
     @Inject
     lateinit var startPoint: StartPoint
@@ -35,6 +39,10 @@ abstract class BaseFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        base {
+            if (showToolbar) supportActionBar?.show() else supportActionBar?.hide()
+            supportActionBar?.title = getString(titleToolbar)
+        }
     }
 
     open fun base(block: BaseActivity.() -> Unit) {
@@ -48,6 +56,24 @@ abstract class BaseFragment : Fragment() {
         vm.body()
         return vm
     }
+
+    open fun updateProgress(status: Boolean?) {
+        if (status == true) {
+            showProgress()
+        } else {
+            hideProgress()
+        }
+    }
+
+
+    fun showProgress() = base { progressStatus(View.VISIBLE) }
+
+    fun hideProgress() = base { progressStatus(View.GONE) }
+
+    fun progressStatus(viewStatus: Int) {
+        toolbar.visibility = viewStatus
+    }
+
 
     fun handleFailure(failure: Failure?) = base { handleFailure(failure) }
 
