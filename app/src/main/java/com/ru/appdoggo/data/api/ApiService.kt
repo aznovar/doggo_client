@@ -2,6 +2,7 @@ package com.ru.appdoggo.data.api
 
 import com.ru.appdoggo.data.api.account.*
 import com.ru.appdoggo.data.api.chats.GetChatsByUserResponse
+import com.ru.appdoggo.data.api.chats.GetMessagesByUserResponse
 import com.ru.appdoggo.data.api.friends.GetFriendshipRequestResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -20,6 +21,7 @@ interface ApiService {
         const val GET_LIST_FRIENDS = "friendship/getFriendshipList/{id}"
         const val SEND_MESSAGE = "messaging/sendMessage"
         const val GET_CHATS_BY_USER = "messaging/getChatsByUser/{userId}"
+        const val GET_MESSAGES_WITH_CONTACT = "messaging/getMessagesWithContact/{contactId}/{userId}"
     }
 
     @Headers("Content-Type: application/json")
@@ -53,6 +55,10 @@ interface ApiService {
     @Headers("Content-Type: application/json")
     @GET(GET_CHATS_BY_USER)
     fun getChatsByUser(@Path("userId")userId: Long): Call<GetChatsByUserResponse>
+
+    @Headers("Content-Type: application/json")
+    @GET(GET_MESSAGES_WITH_CONTACT)
+    fun getMessagesWithContact(@Path("contactId")contactId: Long, @Path("userId")userId: Long): Call<GetMessagesByUserResponse>
 }
 
 

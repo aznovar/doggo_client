@@ -47,11 +47,28 @@ class MessageRepositoryImpl @Inject constructor(
             } else {
                 Either.Right(messageCache.getChats())
             }
-        }
-            .map {
+        }.map {
                 it.distinctBy {
                     it.contact?.id
                 }
             }
     }
+
+    override fun getMessageWithContact(contactId: Long, needFetch: Boolean): Either<Failure, List<MessageEntity>> {
+        return accountCache.getAccount().flatMap { account ->
+            return@flatMap if (needFetch) {
+                messageRequests.getMessagesWithContact(contactId, account.id).onNext {
+                    it.map { message ->
+                        if (message.senderId == account.id) {
+                            message.fromMe = true
+                        }
+                        val contact = messageCache.getChats().first { it.contact?.id == contactId }.contact
+                        message.contact = contact
+                        messageCache.saveMessage(message)
+                    }
+                }
+            } else {
+                Either.Right(messageCache.getMessagesWithContact(contactId))
+            }
+        }    }
 }

@@ -22,7 +22,6 @@ abstract class BaseFragment : Fragment() {
 
     open val showToolbar = true
 
-
     @Inject
     lateinit var startPoint: StartPoint
 
