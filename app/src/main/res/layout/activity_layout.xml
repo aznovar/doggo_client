@@ -46,9 +46,7 @@
         </LinearLayout>
 
         <include
-            layout="@layout/top_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            layout="@layout/top_toolbar" />
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/side_navigation_view"

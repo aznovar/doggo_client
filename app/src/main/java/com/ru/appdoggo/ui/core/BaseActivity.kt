@@ -43,7 +43,6 @@ open class BaseActivity :
 
     private lateinit var navController: NavController
 
-
     open val contentId = R.layout.activity_layout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +58,7 @@ open class BaseActivity :
     open fun setupNavigation() {
         navController = findNavController(R.id.nav_fragment)
         appBarConfiguration = AppBarConfiguration.Builder(
-            R.id.chat, R.id.settings, R.id.mainPage, R.id.places
+            R.id.settings, R.id.mainPage, R.id.places
         )
             .setDrawerLayout(drawerLayout)
             .build()
@@ -71,6 +70,7 @@ open class BaseActivity :
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
+              //  R.id.chat -> hideToolbar()
                 R.id.friends -> hideBottomNavigation()
                 R.id.addFriend -> hideBottomNavigation()
                 R.id.login -> hideBothNavigation()
@@ -83,6 +83,11 @@ open class BaseActivity :
         side_navigation_view?.visibility = View.GONE
         bottom_nav_view?.visibility = View.GONE
         drawerLayout?.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED) //To lock navigation drawer so that it don't respond to swipe gesture
+    }
+
+    private fun hideToolbar(){
+        toolbar?.visibility = View.GONE
+
     }
 
     private fun hideBottomNavigation(){

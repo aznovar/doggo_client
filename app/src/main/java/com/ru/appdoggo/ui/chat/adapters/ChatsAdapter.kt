@@ -14,7 +14,7 @@ open class ChatsAdapter: BaseAdapter<ChatsAdapter.ChatViewHolder>() {
         return ChatViewHolder(binding)
     }
 
-    class ChatViewHolder(val binding: ItemChatsBinding) : BaseViewHolder(binding.root) {
+    class ChatViewHolder(private val binding: ItemChatsBinding) : BaseViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
                 onClick?.onClick(item, it)
