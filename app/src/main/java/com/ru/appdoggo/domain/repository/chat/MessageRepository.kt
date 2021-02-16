@@ -10,4 +10,6 @@ interface MessageRepository {
     fun sendMessage(toId: Long, message:String) : Either<Failure, None>
 
     fun getChats(needFetch: Boolean): Either<Failure, List<MessageEntity>>
+
+    fun getMessageWithContact(contactId: Long, needFetch: Boolean): Either<Failure, List<MessageEntity>>
 }

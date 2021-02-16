@@ -10,4 +10,6 @@ interface MessagesRequests {
     fun sendMessage(fromId: Long, toId: Long, message: String, messageDate: Long, messageTypeId: Int): Either<Failure, None>
 
     fun getChats(userId: Long): Either<Failure, List<MessageEntity>>
+
+    fun getMessagesWithContact(contactId: Long, userId: Long): Either<Failure, List<MessageEntity>>
 }

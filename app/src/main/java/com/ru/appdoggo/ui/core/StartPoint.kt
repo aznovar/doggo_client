@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.ru.appdoggo.data.cache.SharedPreferencesManager
+import com.ru.appdoggo.ui.chat.ChatWithUserActivity
 import com.ru.appdoggo.ui.login.LoginActivity
 import com.ru.appdoggo.ui.main_page.HomeActivity
 import com.ru.appdoggo.ui.register.RegisterActivity
@@ -22,6 +23,13 @@ class StartPoint
 
     fun showSignUp(context: Context) = context.startActivity<RegisterActivity>()
 
+}
+
+fun showChatWithContact(contactId: Long, contactName: String, context: Context) {
+    val bundle = Bundle()
+    bundle.putLong("contact_id", contactId)
+    bundle.putString("contact_name", contactName)
+    context.startActivity<ChatWithUserActivity>(args = bundle)
 }
 
 private inline fun <reified T> Context.startActivity(

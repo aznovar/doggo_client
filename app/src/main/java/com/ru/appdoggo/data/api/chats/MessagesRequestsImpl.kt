@@ -22,4 +22,8 @@ class MessagesRequestsImpl @Inject constructor(
     override fun getChats(userId: Long): Either<Failure, List<MessageEntity>> {
         return requests.make(apiService.getChatsByUser(userId)){it.listOfChats}
     }
+
+    override fun getMessagesWithContact(contactId: Long, userId: Long): Either<Failure, List<MessageEntity>> {
+        return requests.make(apiService.getMessagesWithContact(contactId,userId)){it.listOfMessages}
+    }
 }
