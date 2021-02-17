@@ -6,6 +6,7 @@ import com.ru.appdoggo.domain.injectors.ApplicationModule
 import com.ru.appdoggo.domain.injectors.CacheModule
 import com.ru.appdoggo.domain.injectors.ViewModelModule
 import com.ru.appdoggo.ui.chat.ChatFragment
+import com.ru.appdoggo.ui.chat.ChatWithUserActivity
 import com.ru.appdoggo.ui.chat.MessageFragment
 import com.ru.appdoggo.ui.core.BaseActivity
 import com.ru.appdoggo.ui.core.StartActivity
@@ -59,6 +60,8 @@ interface AppComponent {
     fun inject(activity: BaseActivity)
 
     fun inject(activity: ProfileActivity)
+
+    fun inject(activity: ChatWithUserActivity)
 
     fun inject(fragment: LoginFragment)
 

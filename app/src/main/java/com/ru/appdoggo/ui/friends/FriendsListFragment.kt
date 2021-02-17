@@ -33,7 +33,6 @@ class FriendsListFragment : BaseListFragment() {
             //onSuccess(approveFriendshipRequestData, ::handleFriendRequestAction)
             onFailure(failureData, ::handleFailure)
         }
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

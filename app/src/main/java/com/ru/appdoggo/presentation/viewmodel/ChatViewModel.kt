@@ -35,7 +35,7 @@ class ChatViewModel @Inject constructor(
 
     private fun handleSendMessage(none: None, contactId: Long) {
         sendMessageData.value = none
-        // todo add getMessages(contactId, true)
+        getMessagesWithContact(contactId, true)
     }
 
     private fun handleGetMessages(messages: List<MessageEntity>, contactId: Long, fromCache: Boolean) {

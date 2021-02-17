@@ -5,39 +5,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="message"
             type="com.ru.appdoggo.domain.entities.chat.MessageEntity" />
 
     </data>
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/AppTheme.AppBarOverlay">-->
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        app:layout_collapseMode="pin"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/chocolate"
-        app:itemTextColor="@android:color/white"
-        app:itemIconTint="@android:color/white"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        app:layout_collapseMode="pin"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:background="@color/chocolate"-->
+<!--        app:itemTextColor="@android:color/white"-->
+<!--        app:itemIconTint="@android:color/white"-->
+<!--        app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
     <RelativeLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/rlMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="138dp"
         android:background="?attr/selectableItemBackground"
-        android:clickable="true"
         android:divider="@drawable/contact_divider"
-        android:focusable="true"
         android:paddingStart="16dp"
         android:paddingTop="8dp"
         android:paddingEnd="16dp"
-        android:paddingBottom="8dp">
+        android:paddingBottom="8dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgPhoto"
@@ -94,5 +93,5 @@
             tools:text="Дата"></TextView>
 
     </RelativeLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
 </layout>

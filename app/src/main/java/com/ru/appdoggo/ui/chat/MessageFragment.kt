@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ru.appdoggo.App
@@ -17,8 +18,7 @@ import com.ru.appdoggo.ui.core.ext.onFailure
 import com.ru.appdoggo.ui.core.ext.onSuccess
 import kotlinx.android.synthetic.main.fragment_messages.*
 
-
-class MessageFragment: BaseFragment() {
+class MessageFragment: BaseFragment()  {
     private lateinit var recyclerView: RecyclerView
     private lateinit var lm: RecyclerView.LayoutManager
     lateinit var chatViewModel: ChatViewModel
@@ -29,6 +29,8 @@ class MessageFragment: BaseFragment() {
     private var contactId = 0L
     private var contactName = ""
 
+    val args = ChatFragmentDirections.actionChatToMessageFragment().arguments
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         App.appComponent.inject(this)
@@ -36,37 +38,29 @@ class MessageFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         lm = LinearLayoutManager(context)
-
         recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView).apply {
             setHasFixedSize(true)
             layoutManager = lm
             adapter = viewAdapter
         }
-
         (lm as? LinearLayoutManager)?.apply {
             stackFromEnd = true
         }
-
         chatViewModel = viewModel {
             onSuccess(getMessagesWithContactData, ::handleMessages)
-            onSuccess(progressData, ::updateProgress)
+           // onSuccess(progressData, ::updateProgress)
             onFailure(failureData, ::handleFailure)
         }
-
         base {
-            val args = intent.getBundleExtra("args")
-
             if (args != null) {
-                contactId = args.getLong("contact_id")
-                contactName = args.getString("contact_name", "")
+                contactId = args.getLong("contactId")
+                contactName = args.getString("contactName", "")
             } else {
-                contactId = intent.getLongExtra("contact_id", 0L)
-                contactName = intent.getStringExtra("contact_name")
+                contactId = intent.getLongExtra("contactId", 0L)
+                contactName = intent.getStringExtra("contactName")
             }
         }
-
         btnSend.setOnClickListener {
             sendMessage()
         }
@@ -81,7 +75,6 @@ class MessageFragment: BaseFragment() {
         base {
             supportActionBar?.title = contactName
         }
-
         chatViewModel.getMessagesWithContact(contactId)
     }
 
@@ -101,7 +94,7 @@ class MessageFragment: BaseFragment() {
             showMessage("Введите текст")
             return
         }
-        showProgress()
+      //  showProgress()
         chatViewModel.sendMessage(contactId, text)
         etText.text.clear()
     }

@@ -12,10 +12,7 @@ import kotlinx.android.synthetic.main.item_friend_request.view.*
 
 open class FriendsListAdapter : BaseAdapter<FriendsListAdapter.FriendsListViewHolder>(){
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): FriendsListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendsListViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemFriendsListBinding.inflate(layoutInflater, parent, false)
         return FriendsListViewHolder(binding)
@@ -30,7 +27,7 @@ open class FriendsListAdapter : BaseAdapter<FriendsListAdapter.FriendsListViewHo
 //            view.btnCancel.setOnClickListener {
 //                onClick?.onClick(item, it) todo
 //            }
-//        }
+    //    }
         override fun onBind(item: Any) {
             (item as? FriendsEntity)?.let {
                 binding.friend = it

@@ -52,7 +52,7 @@ class MessageRepositoryImpl @Inject constructor(
                     it.contact?.id
                 }
             }
-    }
+        }
 
     override fun getMessageWithContact(contactId: Long, needFetch: Boolean): Either<Failure, List<MessageEntity>> {
         return accountCache.getAccount().flatMap { account ->
