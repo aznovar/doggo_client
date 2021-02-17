@@ -13,6 +13,7 @@ import com.ru.appdoggo.ui.chat.adapters.ChatsAdapter
 import com.ru.appdoggo.ui.core.BaseListFragment
 import com.ru.appdoggo.ui.core.ext.onFailure
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.ru.appdoggo.ui.core.StartPoint
 import com.ru.appdoggo.ui.core.ext.onSuccess
 
@@ -40,7 +41,9 @@ class ChatFragment: BaseListFragment() {
             (it as? MessageEntity)?.let {
                 val contact = it.contact
                 if (contact != null) {
-                    startPoint.showChatWithContact(contact.id,contact.name, requireActivity())
+                    val action = ChatFragmentDirections.actionChatToMessageFragment(contact.id,contact.name)
+                     view.findNavController().navigate(action)
+                    //startPoint.showChatWithContact(contact.id,contact.name, requireActivity())
                     //StartPoint.newInstanceOfFragment(contact.id, contact.name)
                 }
             }

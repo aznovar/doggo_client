@@ -27,16 +27,16 @@
 <!--        app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
     <RelativeLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/rlMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="138dp"
         android:background="?attr/selectableItemBackground"
         android:divider="@drawable/contact_divider"
         android:paddingStart="16dp"
         android:paddingTop="8dp"
         android:paddingEnd="16dp"
-        android:paddingBottom="8dp">
+        android:paddingBottom="8dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgPhoto"

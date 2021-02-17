@@ -28,8 +28,7 @@ import kotlinx.android.synthetic.main.activity_navigation.view.*
 import kotlinx.android.synthetic.main.top_toolbar.*
 import javax.inject.Inject
 
-open class BaseActivity :
-    AppCompatActivity() {//todo переделать в активити, которая содержит в себе все фрагменты после авторизации
+open class BaseActivity : AppCompatActivity() {//todo переделать в активити, которая содержит в себе все фрагменты после авторизации
 
     @Inject
     lateinit var startPoint: StartPoint
@@ -74,6 +73,7 @@ open class BaseActivity :
                 R.id.friends -> hideBottomNavigation()
                 R.id.addFriend -> hideBottomNavigation()
                 R.id.login -> hideBothNavigation()
+                R.id.messageFragment -> hideBothNavigation()
                 else -> showBothNavigation()
             }
         }

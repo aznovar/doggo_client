@@ -32,7 +32,20 @@
         android:id="@+id/chat"
         android:name="com.ru.appdoggo.ui.chat.ChatFragment"
         android:label="ChatFragment"
-        tools:layout="@layout/fragment_chat"/>
+        tools:layout="@layout/fragment_chat">
+        <action
+            android:id="@+id/action_chat_to_messageFragment"
+            app:destination="@id/messageFragment">
+        <argument
+            android:name="contactId"
+            app:argType="long"
+            android:defaultValue="1L"/>
+         <argument
+             android:name="contactName"
+             app:argType="string"
+             android:defaultValue=""/>
+        </action>
+    </fragment>
 
     <fragment
         android:id="@+id/friends"
@@ -61,6 +74,13 @@
         android:name="com.ru.appdoggo.ui.friends.FriendsRequestsFragment"
         android:label="FriendsRequestFragment"
         tools:layout="@layout/fragment_friends_requests"
+        />
+
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.ru.appdoggo.ui.chat.MessageFragment"
+        android:label="MessageFragment"
+        tools:layout="@layout/fragment_messages"
         />
 
 </navigation>

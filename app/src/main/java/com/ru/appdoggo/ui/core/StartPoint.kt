@@ -26,7 +26,7 @@ class StartPoint
 
     fun showChatWithContact(contactId: Long, contactName: String, context: Context) {
         val bundle = Bundle()
-        bundle.putLong("contact_id", contactId)
+        bundle.putLong("contact_ id", contactId)
         bundle.putString("contact_name", contactName)
         context.startActivity<ChatWithUserActivity>(args = bundle)
     }
