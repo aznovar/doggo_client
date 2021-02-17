@@ -58,7 +58,7 @@ interface OnClick{
 
 
     abstract class BaseViewHolder(protected val view: View): RecyclerView.ViewHolder(view){
-        var onClick: BaseAdapter.OnClick? = null
+        var onClick: OnClick? = null
         var item: Any? = null
 
         init {

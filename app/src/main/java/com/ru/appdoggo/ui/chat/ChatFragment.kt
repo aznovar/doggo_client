@@ -13,6 +13,8 @@ import com.ru.appdoggo.ui.chat.adapters.ChatsAdapter
 import com.ru.appdoggo.ui.core.BaseListFragment
 import com.ru.appdoggo.ui.core.ext.onFailure
 import androidx.lifecycle.Observer
+import com.ru.appdoggo.ui.core.StartPoint
+import com.ru.appdoggo.ui.core.ext.onSuccess
 
 class ChatFragment: BaseListFragment() {
 
@@ -27,33 +29,26 @@ class ChatFragment: BaseListFragment() {
         App.appComponent.inject(this)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(layoutId, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         chatViewModel = viewModel {
-           // onSuccess(progressData, ::updateProgress)
+            onSuccess(getChatsData, ::handleChats)
             onFailure(failureData, ::handleFailure)
         }
 
-//        setOnItemClickListener { it, v ->
-//            (it as? MessageEntity)?.let {
-//                val contact = it.contact
-//                if (contact != null) {
-//                    navigator.showChatWithContact(contact.id, contact.name, requireActivity())
-//                }
-//            }
-//        }
-
-        ChatDatabase.getInstance(requireContext()).messagesDao.getLiveChats().observe(this, Observer {
-            val list = it.distinctBy { it.contact?.id }.toList()
-            handleChats(list)
+        viewAdapter.setOnClick( { it, v ->
+            (it as? MessageEntity)?.let {
+                val contact = it.contact
+                if (contact != null) {
+                    startPoint.showChatWithContact(contact.id,contact.name, requireActivity())
+                    //StartPoint.newInstanceOfFragment(contact.id, contact.name)
+                }
+            }
         })
+//        ChatDatabase.getInstance(requireContext()).messagesDao.getLiveChats().observe(this, Observer {
+//            val list = it.distinctBy { it.contact?.id }.toList()
+//            handleChats(list)
+//        })
     }
 
     override fun onResume() {

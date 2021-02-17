@@ -7,20 +7,17 @@ import com.google.gson.annotations.SerializedName
 @TypeConverters(ContactConverter::class)
 data class MessageEntity(
     @PrimaryKey
-    @SerializedName("message_id")
     @ColumnInfo(name = "message_id")
     var id: Long,
-    @SerializedName("sender_id")
     @ColumnInfo(name = "sender_id")
     var senderId: Long,
-    @SerializedName("receiver_id")
     @ColumnInfo(name = "receiver_id")
     var receiverId: Long,
     var message: String,
-    @SerializedName("message_date")
+    @SerializedName("messageDate")
     @ColumnInfo(name = "message_date")
     var date: Long,
-    @SerializedName("message_type_id")
+    @SerializedName("messageTypeId")
     @ColumnInfo(name = "message_type_id")
     var type: Int,
     var contact: ContactEntity? = null,
@@ -30,8 +27,8 @@ data class MessageEntity(
 }
 
 data class ContactEntity(
-    @SerializedName("user_id")
     var id: Long,
+    @SerializedName("username")
     var name: String
 )
 
