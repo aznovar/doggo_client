@@ -73,7 +73,7 @@
 <!--        tools:layout_editor_absoluteY="488dp" />-->
 
     <LinearLayout
-        android:id="@+id/button"
+        android:id="@+id/button_login"
         style="@style/Button.Primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
