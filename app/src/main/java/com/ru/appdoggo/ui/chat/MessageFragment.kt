@@ -75,7 +75,7 @@ class MessageFragment: BaseFragment()  {
         base {
             supportActionBar?.title = contactName
         }
-        chatViewModel.getMessagesWithContact(contactId)
+        chatViewModel.getMessagesWithContact(contactId) //todo выяснить почему не обновляется список с сообщениями в режиме онлайн
     }
 
     private fun handleMessages(messages: List<MessageEntity>?) {
