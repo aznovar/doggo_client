@@ -42,7 +42,7 @@ class StartPoint
     }
 }
 
-private inline fun <reified T> Context.startActivity(
+ inline fun <reified T> Context.startActivity(
     newTask: Boolean = false,
     args: Bundle? = null
 ) {

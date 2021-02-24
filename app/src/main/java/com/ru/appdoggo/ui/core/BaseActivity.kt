@@ -22,7 +22,11 @@ import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.type.Failure
+import com.ru.appdoggo.domain.type.None
+import com.ru.appdoggo.presentation.viewmodel.AccountViewModel
 import com.ru.appdoggo.presentation.viewmodel.BottomNavigationViewModel
+import com.ru.appdoggo.ui.core.ext.onSuccess
+import com.ru.appdoggo.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_layout.*
 import kotlinx.android.synthetic.main.activity_navigation.view.*
 import kotlinx.android.synthetic.main.top_toolbar.*
@@ -40,12 +44,17 @@ open class BaseActivity : AppCompatActivity() {//todo переделать в а
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+   // private lateinit var accountViewModel: AccountViewModel
+
     private lateinit var navController: NavController
 
     open val contentId = R.layout.activity_layout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        accountViewModel = viewModel {
+//            onSuccess(logoutData, ::handleLogout)
+//        }
         setupContent()
         setupNavigation()
     }
@@ -69,6 +78,7 @@ open class BaseActivity : AppCompatActivity() {//todo переделать в а
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
+                R.id.logout -> showLogin(this)
               //  R.id.chat -> hideToolbar()
                 R.id.friends -> hideBottomNavigation()
                 R.id.addFriend -> hideBottomNavigation()
@@ -135,6 +145,14 @@ open class BaseActivity : AppCompatActivity() {//todo переделать в а
             is Failure.ServerError -> showMessageInToast(getString(R.string.error_server))
             is Failure.UsernameAlreadyExist -> showMessageInToast(getString(R.string.error_username_already_exist))
         }
+    }
+
+    private fun handleLogout(none: None?) {
+        showLogin(this)
+    }
+
+     fun showLogin(context: Context) {
+        context.startActivity<LoginActivity>()
     }
 
     fun showMessageInToast(message: String) {
