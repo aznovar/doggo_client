@@ -2,18 +2,17 @@ package com.ru.appdoggo.ui.login
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.findNavController
 import com.ru.appdoggo.App
 import com.ru.appdoggo.R
 import com.ru.appdoggo.domain.entities.account.AccountEntity
-import com.ru.appdoggo.domain.type.None
 import com.ru.appdoggo.presentation.viewmodel.AccountViewModel
 import com.ru.appdoggo.ui.core.BaseFragment
 import com.ru.appdoggo.ui.core.ext.onFailure
 import com.ru.appdoggo.ui.core.ext.onSuccess
-import kotlinx.android.synthetic.main.fragment_register.*
+import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_register.enterEmail
+import kotlinx.android.synthetic.main.fragment_register.enterPassword
 
 class LoginFragment : BaseFragment() {
 
@@ -25,7 +24,6 @@ class LoginFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         App.appComponent.inject(this)
-
         accountViewModel = viewModel {
             onSuccess(accountData, ::handleAccount)
             onFailure(failureData, ::handleFailure)
@@ -34,7 +32,9 @@ class LoginFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        button.setOnClickListener {
+        button_login.setOnClickListener {
+//            val action = LoginFragmentDirections.actionLoginFragmentToBaseActivity()
+//            view.findNavController().navigate(action)
             login()
         }
     }
@@ -48,8 +48,8 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun handleAccount(acc: AccountEntity?) {
-        val navController = findNavController()
+        val action = LoginFragmentDirections.actionLoginFragmentToBaseActivity()
         showMessage("Аккаунт залогинен")
-        navController.navigate(R.id.mainPage)
+        requireView().findNavController().navigate(action)
     }
 }

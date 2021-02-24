@@ -22,11 +22,11 @@
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
 
-    <fragment
+    <activity
         android:id="@+id/login"
-        android:name="com.ru.appdoggo.ui.login.LoginFragment"
+        android:name="com.ru.appdoggo.ui.login.LoginActivity"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/activity_authentication" />
 
     <fragment
         android:id="@+id/chat"

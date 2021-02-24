@@ -1,6 +1,7 @@
 package com.ru.appdoggo.ui.settings
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.findNavController
@@ -11,6 +12,7 @@ import com.ru.appdoggo.presentation.viewmodel.AccountViewModel
 import com.ru.appdoggo.ui.core.BaseActivity
 import com.ru.appdoggo.ui.core.BaseFragment
 import com.ru.appdoggo.ui.core.ext.onSuccess
+import com.ru.appdoggo.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.navigation.*
 
@@ -41,4 +43,5 @@ class SettingsFragment: BaseFragment() {
             view.findNavController().navigate(action)
         }
     }
+
 }
