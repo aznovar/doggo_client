@@ -61,13 +61,23 @@
         android:id="@+id/settings"
         android:name="com.ru.appdoggo.ui.settings.SettingsFragment"
         android:label="SettingsFragment"
-        tools:layout="@layout/fragment_settings"/>
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_logout"
+            app:destination="@+id/login"/>
+    </fragment>
 
     <fragment
         android:id="@+id/addFriend"
         android:name="com.ru.appdoggo.ui.friends.AddFriendFragment"
         android:label="AddFriendFragment"
         tools:layout="@layout/fragment_add_friend"/>
+
+    <fragment
+        android:id = "@+id/logout"
+        android:name="com.ru.appdoggo.ui.login.LogoutFragment"
+        android:label="LogoutFragment"
+        tools:layout="@layout/fragment_logout"/>
 
     <fragment
         android:id="@+id/friendsRequest"

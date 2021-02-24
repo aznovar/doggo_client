@@ -202,50 +202,50 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/btnLogout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?attr/selectableItemBackground"
-        android:layout_gravity="bottom"
-        android:gravity="center_vertical" >
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/btnLogout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="10dp"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:background="?attr/selectableItemBackground"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:gravity="center_vertical" >-->
 
-        <LinearLayout
-            android:id="@+id/llloginout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/small_margin"
-            android:layout_marginRight="@dimen/small_margin"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/llloginout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="@dimen/small_margin"-->
+<!--            android:layout_marginRight="@dimen/small_margin"-->
+<!--            android:orientation="horizontal">-->
 
-            <ImageView
-                android:id="@+id/imgvloginout"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/small_margin5"
-                android:src="@drawable/loginout"
-                android:tint="@color/almostChocolate"/>
+<!--            <ImageView-->
+<!--                android:id="@+id/imgvloginout"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_margin="@dimen/small_margin5"-->
+<!--                android:src="@drawable/loginout"-->
+<!--                android:tint="@color/almostChocolate"/>-->
 
-            <TextView
-                android:id="@+id/txtvloginout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/small_margin"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginRight="@dimen/small_margin5"
-                android:gravity="start|center_vertical"
-                android:fontFamily="@font/lora"
-                android:textColor="#E0E0E0"
-                android:text="@string/logout"
-                android:textSize="20sp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/txtvloginout"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginLeft="@dimen/small_margin"-->
+<!--                android:layout_marginStart="@dimen/small_margin"-->
+<!--                android:layout_marginRight="@dimen/small_margin5"-->
+<!--                android:gravity="start|center_vertical"-->
+<!--                android:fontFamily="@font/lora"-->
+<!--                android:textColor="#E0E0E0"-->
+<!--                android:text="@string/logout"-->
+<!--                android:textSize="20sp"/>-->
 
-        </LinearLayout>
-    </RelativeLayout>
+<!--        </LinearLayout>-->
+<!--    </RelativeLayout>-->
 
 
 </com.google.android.material.navigation.NavigationView>

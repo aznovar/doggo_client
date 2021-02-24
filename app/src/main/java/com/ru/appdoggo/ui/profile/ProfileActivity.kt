@@ -26,6 +26,7 @@ import com.ru.appdoggo.ui.core.ext.onSuccess
 import com.ru.appdoggo.ui.core.inTransaction
 import com.ru.appdoggo.ui.friends.FriendsFragment
 import kotlinx.android.synthetic.main.activity_navigation.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.navigation.*
 import javax.inject.Inject
 
